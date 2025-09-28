@@ -9,6 +9,22 @@ const Portfolio = () => {
 
   const projects = [
     {
+      title: "COVID-19 Live Data Tracker",
+      description: "Real-time coronavirus data visualization and tracking application built during the pandemic",
+      tech: ["React", "JavaScript", "API Integration", "Data Visualization"],
+      image: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      liveUrl: "https://corona-virus-live-data.vercel.app/",
+      year: "2020"
+    },
+    {
+      title: "Weather App Pro",
+      description: "Professional weather application with global coverage, 7-day forecasts, and real-time updates",
+      tech: ["React", "JavaScript", "Weather API", "Geolocation", "Responsive Design"],
+      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      liveUrl: "https://weather-app-sand-pi-48.vercel.app/",
+      year: "2024"
+    },
+    {
       title: "E-Commerce Platform",
       description: "Modern e-commerce solution with advanced features",
       tech: ["React", "Node.js", "MongoDB", "Stripe"],
@@ -19,18 +35,6 @@ const Portfolio = () => {
       description: "Secure and intuitive banking application",
       tech: ["React Native", "Firebase", "TypeScript"],
       image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      title: "SaaS Dashboard",
-      description: "Analytics dashboard for business intelligence",
-      tech: ["Vue.js", "D3.js", "Python", "PostgreSQL"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      title: "Healthcare Portal",
-      description: "Patient management and telemedicine platform",
-      tech: ["Angular", "Spring Boot", "MySQL", "AWS"],
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     }
   ];
 
@@ -73,9 +77,16 @@ const Portfolio = () => {
                 </div>
                 
                 <div className="p-6">
-                  <h3 className="text-xl sm:text-2xl font-semibold font-poppins mb-3">
-                    {project.title}
-                  </h3>
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-xl sm:text-2xl font-semibold font-poppins">
+                      {project.title}
+                    </h3>
+                    {project.year && (
+                      <span className="text-sm text-teal font-medium bg-teal/10 px-2 py-1 rounded-full">
+                        {project.year}
+                      </span>
+                    )}
+                  </div>
                   <p className="text-white/80 mb-4 leading-relaxed">
                     {project.description}
                   </p>
@@ -94,9 +105,10 @@ const Portfolio = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => project.liveUrl ? window.open(project.liveUrl, '_blank') : null}
                     className="w-full bg-gradient-to-r from-teal to-purple text-white py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-teal/25"
                   >
-                    View Project
+                    {project.liveUrl ? 'View Live Project' : 'View Project'}
                   </motion.button>
                 </div>
               </div>
