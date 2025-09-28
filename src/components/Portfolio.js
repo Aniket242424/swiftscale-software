@@ -26,15 +26,17 @@ const Portfolio = () => {
     },
     {
       title: "E-Commerce Platform",
-      description: "Modern e-commerce solution with advanced features",
+      description: "Modern e-commerce solution with advanced features - Currently in development",
       tech: ["React", "Node.js", "MongoDB", "Stripe"],
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      status: "in-progress"
     },
     {
       title: "Mobile Banking App",
-      description: "Secure and intuitive banking application",
+      description: "Secure and intuitive banking application - Currently in development",
       tech: ["React Native", "Firebase", "TypeScript"],
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      status: "in-progress"
     }
   ];
 
@@ -77,15 +79,22 @@ const Portfolio = () => {
                 </div>
                 
                 <div className="p-6">
-                  <div className="flex items-center justify-between mb-3">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-2">
                     <h3 className="text-xl sm:text-2xl font-semibold font-poppins">
                       {project.title}
                     </h3>
-                    {project.year && (
-                      <span className="text-sm text-teal font-medium bg-teal/10 px-2 py-1 rounded-full">
-                        {project.year}
-                      </span>
-                    )}
+                    <div className="flex flex-wrap gap-2">
+                      {project.year && (
+                        <span className="text-sm text-teal font-medium bg-teal/10 px-2 py-1 rounded-full">
+                          {project.year}
+                        </span>
+                      )}
+                      {project.status === 'in-progress' && (
+                        <span className="text-sm text-orange-400 font-medium bg-orange-400/10 px-2 py-1 rounded-full border border-orange-400/30">
+                          In Progress
+                        </span>
+                      )}
+                    </div>
                   </div>
                   <p className="text-white/80 mb-4 leading-relaxed">
                     {project.description}
@@ -105,10 +114,29 @@ const Portfolio = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={() => project.liveUrl ? window.open(project.liveUrl, '_blank') : null}
-                    className="w-full bg-gradient-to-r from-teal to-purple text-white py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-teal/25"
+                    onClick={() => {
+                      if (project.liveUrl) {
+                        window.open(project.liveUrl, '_blank');
+                      } else if (project.status === 'in-progress') {
+                        alert('This project is currently in development. Please contact us for more details!');
+                      } else {
+                        alert('Project details coming soon!');
+                      }
+                    }}
+                    className={`w-full py-3 rounded-xl font-semibold transition-all duration-300 ${
+                      project.liveUrl 
+                        ? 'bg-gradient-to-r from-teal to-purple text-white hover:shadow-lg hover:shadow-teal/25' 
+                        : project.status === 'in-progress'
+                        ? 'bg-gradient-to-r from-orange-500 to-yellow-500 text-white hover:shadow-lg hover:shadow-orange-500/25'
+                        : 'bg-gradient-to-r from-gray-500 to-gray-600 text-white hover:shadow-lg hover:shadow-gray-500/25'
+                    }`}
                   >
-                    {project.liveUrl ? 'View Live Project' : 'View Project'}
+                    {project.liveUrl 
+                      ? 'View Live Project' 
+                      : project.status === 'in-progress' 
+                      ? 'In Development' 
+                      : 'Coming Soon'
+                    }
                   </motion.button>
                 </div>
               </div>

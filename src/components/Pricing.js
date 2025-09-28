@@ -14,7 +14,7 @@ const Pricing = () => {
       period: "one-time",
       originalPrice: "₹39,999",
       discount: "38% OFF",
-      description: "Perfect for local businesses, shops, and startups",
+      description: "Perfect for small businesses, startups, and local shops worldwide",
       features: [
         "5 Pages Website",
         "Mobile Responsive",
@@ -35,7 +35,7 @@ const Pricing = () => {
       period: "one-time",
       originalPrice: "₹79,999",
       discount: "38% OFF",
-      description: "Ideal for growing businesses and service providers",
+      description: "Ideal for growing businesses and service providers globally",
       features: [
         "10 Pages Website",
         "Admin Dashboard",
@@ -57,7 +57,7 @@ const Pricing = () => {
       period: "one-time",
       originalPrice: "₹1,49,999",
       discount: "33% OFF",
-      description: "Complete online store for selling products",
+      description: "Complete online store for selling products worldwide",
       features: [
         "Unlimited Products",
         "Payment Gateway",
@@ -89,7 +89,7 @@ const Pricing = () => {
             Professional Websites <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">Starting ₹24,999</span>
           </h2>
           <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto">
-            Perfect for local businesses, shops, restaurants, and startups in Pune. Get your professional website with free domain & hosting. Special launch pricing!
+            Perfect for businesses worldwide - from local shops to global enterprises. Get your professional website with free domain & hosting. Special launch pricing!
           </p>
         </motion.div>
 
