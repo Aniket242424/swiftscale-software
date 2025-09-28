@@ -88,9 +88,72 @@ const Pricing = () => {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-poppins mb-6">
             Professional Websites <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">Starting ₹24,999</span>
           </h2>
-          <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto mb-8">
             Perfect for businesses worldwide - from local shops to global enterprises. Get your professional website with free domain & hosting. Special launch pricing!
           </p>
+          
+          {/* Value Stacking */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 max-w-2xl mx-auto"
+          >
+            <h3 className="text-xl font-bold text-white mb-4">🎁 What You Get (Total Value: ₹45,000)</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-left">
+              <div className="flex items-center space-x-2">
+                <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span className="text-white/90">Professional Design (₹15,000)</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span className="text-white/90">Mobile Responsive (₹8,000)</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span className="text-white/90">SEO Setup (₹5,000)</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span className="text-white/90">Free Domain (₹1,200)</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span className="text-white/90">Free Hosting (₹2,400)</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span className="text-white/90">3 Months Support (₹9,000)</span>
+              </div>
+            </div>
+            <div className="mt-4 pt-4 border-t border-white/10">
+              <div className="flex justify-between items-center">
+                <span className="text-white/70">Total Value:</span>
+                <span className="text-2xl font-bold text-white">₹45,000</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-teal font-semibold">Your Price:</span>
+                <span className="text-2xl font-bold text-teal">₹24,999</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-green-400 font-semibold">You Save:</span>
+                <span className="text-xl font-bold text-green-400">₹20,001</span>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

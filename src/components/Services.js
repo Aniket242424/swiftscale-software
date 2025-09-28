@@ -34,6 +34,16 @@ const Services = () => {
       ),
       title: "Test Automation",
       description: "Comprehensive test automation solutions using Selenium, Cypress, and modern testing frameworks for reliable software delivery."
+    },
+    {
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4" />
+        </svg>
+      ),
+      title: "Mobile Automation Support",
+      description: "AI-powered mobile test automation with Appium, real emulator execution, and natural language test creation for Android and iOS apps."
     }
   ];
 

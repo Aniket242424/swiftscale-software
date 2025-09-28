@@ -12,7 +12,7 @@ const Portfolio = () => {
       title: "COVID-19 Live Data Tracker",
       description: "Real-time coronavirus data visualization and tracking application built during the pandemic",
       tech: ["React", "JavaScript", "API Integration", "Data Visualization"],
-      image: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1584017911766-d451b3d0e843?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       liveUrl: "https://corona-virus-live-data.vercel.app/",
       year: "2020"
     },
@@ -28,7 +28,23 @@ const Portfolio = () => {
       title: "E-Commerce Platform",
       description: "Modern e-commerce solution with advanced features - Currently in development",
       tech: ["React", "Node.js", "MongoDB", "Stripe"],
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1556742111-a301076d9d18?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      status: "in-progress"
+    },
+    {
+      title: "Screenshot Comparison Tool",
+      description: "Automated testing solution using SpecFlow for visual regression testing and screenshot comparison",
+      tech: ["SpecFlow", "C#", "Selenium", "BDD", "Test Automation"],
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      githubUrl: "https://github.com/Aniket242424/ScreenshotComparison",
+      demoUrl: "https://drive.google.com/file/d/1mxOGutaWYa_WGijfAZPHqgMS08bwUZBy/view?usp=sharing",
+      year: "2022"
+    },
+    {
+      title: "Testkami MVP",
+      description: "AI-powered test automation platform that converts natural language to automated tests with real emulator execution",
+      tech: ["Node.js", "Appium", "Gemini AI", "Android Emulator", "Natural Language Processing", "Test Automation"],
+      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       status: "in-progress"
     },
     {
@@ -69,11 +85,11 @@ const Portfolio = () => {
               className="group cursor-pointer"
             >
               <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300 hover:shadow-2xl hover:shadow-teal/25">
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden h-64">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
@@ -117,6 +133,10 @@ const Portfolio = () => {
                     onClick={() => {
                       if (project.liveUrl) {
                         window.open(project.liveUrl, '_blank');
+                      } else if (project.demoUrl) {
+                        window.open(project.demoUrl, '_blank');
+                      } else if (project.githubUrl) {
+                        window.open(project.githubUrl, '_blank');
                       } else if (project.status === 'in-progress') {
                         alert('This project is currently in development. Please contact us for more details!');
                       } else {
@@ -126,6 +146,10 @@ const Portfolio = () => {
                     className={`w-full py-3 rounded-xl font-semibold transition-all duration-300 ${
                       project.liveUrl 
                         ? 'bg-gradient-to-r from-teal to-purple text-white hover:shadow-lg hover:shadow-teal/25' 
+                        : project.demoUrl
+                        ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:shadow-lg hover:shadow-blue-600/25'
+                        : project.githubUrl
+                        ? 'bg-gradient-to-r from-gray-700 to-gray-800 text-white hover:shadow-lg hover:shadow-gray-700/25'
                         : project.status === 'in-progress'
                         ? 'bg-gradient-to-r from-orange-500 to-yellow-500 text-white hover:shadow-lg hover:shadow-orange-500/25'
                         : 'bg-gradient-to-r from-gray-500 to-gray-600 text-white hover:shadow-lg hover:shadow-gray-500/25'
@@ -133,6 +157,10 @@ const Portfolio = () => {
                   >
                     {project.liveUrl 
                       ? 'View Live Project' 
+                      : project.demoUrl
+                      ? 'View Demo'
+                      : project.githubUrl
+                      ? 'View on GitHub'
                       : project.status === 'in-progress' 
                       ? 'In Development' 
                       : 'Coming Soon'
@@ -153,9 +181,13 @@ const Portfolio = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => {
+              // Scroll to contact section to get in touch for more projects
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+            }}
             className="btn-secondary"
           >
-            View All Projects
+            Get More Project Details
           </motion.button>
         </motion.div>
       </div>

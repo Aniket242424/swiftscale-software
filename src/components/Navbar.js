@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Logo from './Logo';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,23 +33,13 @@ const Navbar = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
           ? 'bg-navy/95 backdrop-blur-lg border-b border-white/10' 
-          : 'bg-transparent'
+          : 'bg-navy/20 backdrop-blur-sm'
       }`}
     >
       <div className="container-max">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-3"
-          >
-            <div className="w-10 h-10 bg-gradient-to-br from-teal to-purple rounded-xl flex items-center justify-center">
-              <span className="text-white font-bold text-lg">SS</span>
-            </div>
-            <span className="text-2xl font-bold font-poppins text-white">
-              SwiftScale
-            </span>
-          </motion.div>
+          <Logo size="default" />
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
