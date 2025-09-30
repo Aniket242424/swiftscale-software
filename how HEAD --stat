@@ -1,0 +1,23 @@
+[33mcommit 29b0bb9481e43d52cf2d7eec03042e12d38afc06[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: aniket242424 <amahangade24@gmail.com>
+Date:   Tue Sep 30 22:17:01 2025 +0530
+
+     Update WhatsApp number to +91 8788155105
+    
+    - Updated phone number across all components
+    - Updated WhatsApp links in Contact, Footer, WhatsAppWidget, and Guarantees
+    - Updated placeholder text in contact form
+    - Removed old personal number completely
+    - All WhatsApp integrations now point to new business number
+    
+    Components updated:
+    - Contact.js (phone display, WhatsApp link, placeholder)
+    - Footer.js (phone display, WhatsApp link)
+    - WhatsAppWidget.js (quick message handler, main link)
+    - Guarantees.js (WhatsApp link in CTA)
+    - About.js (removed accidental old number)
+
+src/components/Contact.js
+src/components/Footer.js
+src/components/Guarantees.js
+src/components/WhatsAppWidget.js
