@@ -22,6 +22,7 @@ const Navbar = () => {
     { name: 'Portfolio', href: '#portfolio' },
     { name: 'Pricing', href: '#pricing' },
     { name: 'About', href: '#about' },
+    { name: 'Team', href: '#team' },
     { name: 'Contact', href: '#contact' }
   ];
 
@@ -60,6 +61,7 @@ const Navbar = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               className="btn-primary text-sm px-6 py-2"
             >
               Get Started
@@ -108,6 +110,10 @@ const Navbar = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => {
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  setIsMobileMenuOpen(false);
+                }}
                 className="btn-primary w-full text-sm px-6 py-2"
               >
                 Get Started

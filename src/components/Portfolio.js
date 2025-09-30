@@ -74,7 +74,7 @@ const Portfolio = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {projects.map((project, index) => (
             <motion.div
               key={index}
@@ -82,9 +82,9 @@ const Portfolio = () => {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               whileHover={{ y: -10 }}
-              className="group cursor-pointer"
+              className="group cursor-pointer h-full"
             >
-              <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300 hover:shadow-2xl hover:shadow-teal/25">
+              <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300 hover:shadow-2xl hover:shadow-teal/25 h-full flex flex-col">
                 <div className="relative overflow-hidden h-64">
                   <img
                     src={project.image}
@@ -94,7 +94,7 @@ const Portfolio = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-grow">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-2">
                     <h3 className="text-xl sm:text-2xl font-semibold font-poppins">
                       {project.title}
@@ -112,7 +112,7 @@ const Portfolio = () => {
                       )}
                     </div>
                   </div>
-                  <p className="text-white/80 mb-4 leading-relaxed">
+                  <p className="text-white/80 mb-4 leading-relaxed flex-grow">
                     {project.description}
                   </p>
                   

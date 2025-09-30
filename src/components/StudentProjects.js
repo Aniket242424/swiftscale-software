@@ -19,6 +19,7 @@ const StudentProjects = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     setFormData({
@@ -33,11 +34,17 @@ const StudentProjects = () => {
     setSubmitStatus('');
     
     try {
-      const serviceId = 'service_swiftscale';
-      const templateId = 'template_student_projects';
-      const publicKey = 'your_public_key';
+      // EmailJS configuration using environment variables
+      const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID || 'service_9g3nhzl';
+      const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID_STUDENT || 'template_u88hszs';
+      const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'Wq1KCQz6S9BnCCZOU';
+
+      console.log('EmailJS Config:', { serviceId, templateId, publicKey });
+
+      // Initialize EmailJS
+      emailjs.init(publicKey);
       
-      await emailjs.send(serviceId, templateId, {
+      const result = await emailjs.send(serviceId, templateId, {
         from_name: formData.name,
         from_email: formData.email,
         phone: formData.phone,
@@ -50,7 +57,9 @@ const StudentProjects = () => {
         budget: formData.budget,
         message: formData.message,
         to_name: 'SwiftScale Student Team'
-      }, publicKey);
+      });
+
+      console.log('Email sent successfully:', result);
       
       setSubmitStatus('success');
       setFormData({
@@ -417,7 +426,7 @@ const StudentProjects = () => {
                   "Code explanation",
                   "Internship certificate",
                   "WhatsApp support",
-                  "1 month assistance"
+                  "1 month post-delivery assistance"
                 ],
                 popular: false
               },
@@ -433,7 +442,7 @@ const StudentProjects = () => {
                   "Complete documentation",
                   "Code walkthrough",
                   "Professional internship certificate",
-                  "2 months assistance"
+                  "2 months post-delivery assistance"
                 ],
                 popular: true,
                 badge: "MOST POPULAR"
@@ -453,7 +462,7 @@ const StudentProjects = () => {
                   "Presentation support",
                   "Professional internship certificate",
                   "Paid internship opportunity*",
-                  "3 months assistance",
+                  "3 months post-delivery assistance",
                   "Future project guidance"
                 ],
                 popular: false,

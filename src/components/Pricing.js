@@ -21,7 +21,7 @@ const Pricing = () => {
         "Contact Form",
         "WhatsApp Integration",
         "Google Maps Integration",
-        "1 Month Support",
+        "1 Month Post-Delivery Support",
         "Free Domain (1 Year)",
         "Free Hosting (1 Year)",
         "SEO Basic Setup"
@@ -42,7 +42,7 @@ const Pricing = () => {
         "Online Booking System",
         "Payment Gateway",
         "Google Analytics",
-        "3 Months Support",
+        "3 Months Post-Delivery Support",
         "Free Domain (1 Year)",
         "Free Hosting (1 Year)",
         "Social Media Integration",
@@ -64,7 +64,7 @@ const Pricing = () => {
         "Inventory Management",
         "Order Tracking",
         "Customer Dashboard",
-        "6 Months Support",
+        "6 Months Post-Delivery Support",
         "Free Domain (1 Year)",
         "Free Hosting (1 Year)",
         "Mobile App (Basic)",
@@ -88,8 +88,11 @@ const Pricing = () => {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-poppins mb-6">
             Professional Websites <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">Starting ₹24,999</span>
           </h2>
-          <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto mb-8">
+          <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto mb-4">
             Perfect for businesses worldwide - from local shops to global enterprises. Get your professional website with free domain & hosting. Special launch pricing!
+          </p>
+          <p className="text-sm text-white/60 max-w-2xl mx-auto mb-8">
+            <strong>Note:</strong> All plans include post-delivery support. For ongoing maintenance, updates, and long-term partnership, we offer dedicated maintenance packages starting from ₹5,000/month.
           </p>
           
           {/* Value Stacking */}
@@ -216,6 +219,7 @@ const Pricing = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                   className={`w-full py-4 rounded-xl font-semibold transition-all duration-300 ${
                     plan.popular
                       ? 'bg-gradient-to-r from-teal to-purple text-white hover:shadow-lg hover:shadow-teal/25'
@@ -241,6 +245,7 @@ const Pricing = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             className="btn-primary"
           >
             Get Your Website Now - ₹24,999

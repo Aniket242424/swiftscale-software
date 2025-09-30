@@ -18,27 +18,82 @@ const Contact = () => {
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     });
+    
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors({
+        ...errors,
+        [name]: ''
+      });
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+    
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required';
+    } else if (!/^[6-9]\d{9}$/.test(formData.phone.replace(/\D/g, ''))) {
+      newErrors.phone = 'Please enter a valid 10-digit Indian phone number';
+    }
+    
+    if (!formData.projectType) {
+      newErrors.projectType = 'Please select a project type';
+    }
+    
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'Message must be at least 10 characters long';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Validate form before submission
+    if (!validateForm()) {
+      return;
+    }
+    
     setIsSubmitting(true);
     setSubmitStatus('');
+    setErrors({});
 
     try {
-      // EmailJS configuration - you'll need to set these up
-      const serviceId = 'service_swiftscale'; // Replace with your EmailJS service ID
-      const templateId = 'template_contact'; // Replace with your EmailJS template ID
-      const publicKey = 'your_public_key'; // Replace with your EmailJS public key
+      // EmailJS configuration using environment variables
+      const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID || 'service_9g3nhzl';
+      const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID_CONTACT || 'template_qknt74a';
+      const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'Wq1KCQz6S9BnCCZOU';
+
+      console.log('EmailJS Config:', { serviceId, templateId, publicKey });
+
+      // Initialize EmailJS
+      emailjs.init(publicKey);
 
       // Send email using EmailJS
-      await emailjs.send(
+      const result = await emailjs.send(
         serviceId,
         templateId,
         {
@@ -48,9 +103,10 @@ const Contact = () => {
           project_type: formData.projectType,
           message: formData.message,
           to_name: 'SwiftScale Team',
-        },
-        publicKey
+        }
       );
+
+      console.log('Email sent successfully:', result);
 
       setSubmitStatus('success');
       // Reset form
@@ -147,9 +203,16 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent transition-all duration-300"
+                      className={`w-full px-4 py-3 bg-white/10 border rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 ${
+                        errors.name 
+                          ? 'border-red-400 focus:ring-red-400' 
+                          : 'border-white/20 focus:ring-teal'
+                      }`}
                       placeholder="Your name"
                     />
+                    {errors.name && (
+                      <p className="text-red-400 text-sm mt-1">{errors.name}</p>
+                    )}
                   </div>
                   
                   <div>
@@ -163,9 +226,16 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent transition-all duration-300"
+                      className={`w-full px-4 py-3 bg-white/10 border rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 ${
+                        errors.email 
+                          ? 'border-red-400 focus:ring-red-400' 
+                          : 'border-white/20 focus:ring-teal'
+                      }`}
                       placeholder="your@email.com"
                     />
+                    {errors.email && (
+                      <p className="text-red-400 text-sm mt-1">{errors.email}</p>
+                    )}
                   </div>
                 </div>
 
