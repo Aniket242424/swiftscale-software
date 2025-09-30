@@ -114,7 +114,7 @@ const Guarantees = () => {
                 Start Your Project Now
               </motion.button>
               <motion.a
-                href="https://wa.me/917058309714?text=Hi!%20I%20want%20to%20discuss%20a%20project%20with%20guarantees"
+                href="https://wa.me/918788155105?text=Hi!%20I%20want%20to%20discuss%20a%20project%20with%20guarantees"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}

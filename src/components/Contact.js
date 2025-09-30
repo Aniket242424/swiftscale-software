@@ -181,7 +181,7 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent transition-all duration-300"
-                      placeholder="+91 7058309714"
+                      placeholder="+91 8788155105"
                     />
                   </div>
                   
@@ -302,9 +302,9 @@ const Contact = () => {
                 <div className="flex-1">
                   <p className="font-semibold">Phone</p>
                   <div className="flex items-center space-x-3">
-                    <p className="text-white/80">+91 7058309714</p>
+                    <p className="text-white/80">+91 8788155105</p>
                     <motion.a
-                      href="https://wa.me/917058309714?text=Hi%20SwiftScale%20Software!%20I%20would%20like%20to%20discuss%20a%20project."
+                      href="https://wa.me/918788155105?text=Hi%20SwiftScale%20Software!%20I%20would%20like%20to%20discuss%20a%20project."
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.1 }}

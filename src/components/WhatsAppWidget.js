@@ -25,7 +25,7 @@ const WhatsAppWidget = () => {
 
   const handleQuickMessage = (message) => {
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/917058309714?text=${encodedMessage}`, '_blank');
+    window.open(`https://wa.me/918788155105?text=${encodedMessage}`, '_blank');
     setIsExpanded(false);
   };
 
@@ -72,7 +72,7 @@ const WhatsAppWidget = () => {
             
             <div className="mt-4 pt-3 border-t border-gray-200">
               <motion.a
-                href="https://wa.me/917058309714?text=Hi%20SwiftScale%20Software!%20I%20would%20like%20to%20discuss%20a%20project."
+                href="https://wa.me/918788155105?text=Hi%20SwiftScale%20Software!%20I%20would%20like%20to%20discuss%20a%20project."
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
