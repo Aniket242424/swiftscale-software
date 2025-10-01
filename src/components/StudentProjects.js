@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import StudentNavbar from './StudentNavbar';
-import '../styles/mobile-fixes.css';
 
 const StudentProjects = () => {
   const [formData, setFormData] = useState({
@@ -20,7 +19,6 @@ const StudentProjects = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
-  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     setFormData({
