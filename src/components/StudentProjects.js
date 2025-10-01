@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import StudentNavbar from './StudentNavbar';
+import '../styles/mobile-fixes.css';
 
 const StudentProjects = () => {
   const [formData, setFormData] = useState({
@@ -412,7 +413,7 @@ const StudentProjects = () => {
                 </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="student-pricing-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {[
               {
                 name: "Basic Projects",
@@ -478,7 +479,7 @@ const StudentProjects = () => {
                 whileHover={{ y: -10 }}
                 className="group cursor-pointer h-full"
               >
-                <div className={`relative bg-white/5 backdrop-blur-lg border rounded-2xl p-6 sm:p-8 hover:bg-white/10 transition-all duration-300 hover:shadow-2xl h-full flex flex-col ${
+                <div className={`student-pricing-card relative bg-white/5 backdrop-blur-lg border rounded-2xl p-4 sm:p-6 lg:p-8 hover:bg-white/10 transition-all duration-300 hover:shadow-2xl h-full flex flex-col w-full ${
                   plan.popular 
                     ? 'border-teal/50 shadow-2xl shadow-teal/25' 
                     : 'border-white/10'
@@ -492,17 +493,17 @@ const StudentProjects = () => {
                   </div>
                 )}
                 
-                <div className="text-center mb-6 flex-grow">
-                  <h3 className="text-xl sm:text-2xl font-bold font-poppins text-white mb-2">
+                <div className="text-center mb-4 sm:mb-6 flex-grow">
+                  <h3 className="student-pricing-title text-lg sm:text-xl lg:text-2xl font-bold font-poppins text-white mb-2 leading-tight">
                     {plan.name}
                   </h3>
                   <div className="mb-2">
                     {plan.originalPrice && (
-                      <div className="text-base sm:text-lg text-white/50 line-through mb-1">
+                      <div className="text-sm sm:text-base lg:text-lg text-white/50 line-through mb-1">
                         {plan.originalPrice}
                       </div>
                     )}
-                    <div className="text-2xl sm:text-3xl font-bold text-teal break-words">
+                    <div className="student-pricing-price text-xl sm:text-2xl lg:text-3xl font-bold text-teal break-words leading-tight">
                       {plan.price}
                     </div>
                     {plan.originalPrice && (
@@ -511,16 +512,16 @@ const StudentProjects = () => {
                       </div>
                     )}
                   </div>
-                  <p className="text-sm sm:text-base text-white/70 mb-4">
+                  <p className="student-pricing-description text-xs sm:text-sm lg:text-base text-white/70 mb-3 sm:mb-4 leading-relaxed">
                     {plan.description}
                   </p>
                   
                   {/* Project Examples */}
-                  <div className="bg-white/5 rounded-xl p-3 sm:p-4">
+                  <div className="bg-white/5 rounded-xl p-2 sm:p-3 lg:p-4">
                     <h4 className="text-xs sm:text-sm font-semibold text-teal mb-2">Example Projects:</h4>
                     <div className="flex flex-wrap gap-1 justify-center">
                       {plan.examples.map((example, exampleIndex) => (
-                        <span key={exampleIndex} className="text-xs bg-teal/20 text-teal px-2 py-1 rounded-full">
+                        <span key={exampleIndex} className="text-xs bg-teal/20 text-teal px-2 py-1 rounded-full whitespace-nowrap">
                           {example}
                         </span>
                       ))}
@@ -528,7 +529,7 @@ const StudentProjects = () => {
                   </div>
                 </div>
                 
-                <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
+                <ul className="student-pricing-features space-y-2 sm:space-y-3 mb-4 sm:mb-6 lg:mb-8">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start space-x-2 sm:space-x-3 text-sm sm:text-base text-white/80">
                       <svg className="w-4 h-4 sm:w-5 sm:h-5 text-teal flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
@@ -543,7 +544,7 @@ const StudentProjects = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => document.getElementById('student-form')?.scrollIntoView({ behavior: 'smooth' })}
-                  className={`w-full py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 ${
+                  className={`student-pricing-button w-full py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 mt-auto ${
                     plan.popular
                       ? 'bg-gradient-to-r from-teal to-purple text-white hover:shadow-lg hover:shadow-teal/25'
                       : 'bg-white/10 text-white border border-white/20 hover:bg-white/20'
