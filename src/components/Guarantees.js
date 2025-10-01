@@ -14,8 +14,8 @@ const Guarantees = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      title: "30-Day Money Back Guarantee",
-      description: "Not satisfied? Get your full money back within 30 days. No questions asked."
+      title: "Quality Assurance",
+      description: "Every project undergoes rigorous testing and quality checks before delivery. We ensure pixel-perfect results."
     },
     {
       icon: (
@@ -102,7 +102,7 @@ const Guarantees = () => {
             </h3>
             <p className="text-white/90 mb-6 text-lg">
               Join 50+ satisfied clients who trusted us with their digital transformation. 
-              Your success is guaranteed or your money back!
+              Your success is our commitment!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button
