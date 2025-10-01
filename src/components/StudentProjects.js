@@ -366,53 +366,53 @@ const StudentProjects = () => {
               </div>
             </div>
             
-            {/* Value Proposition */}
-            <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 max-w-2xl mx-auto">
-              <h3 className="text-xl font-bold text-white mb-4">🎓 What You Get (Total Value: ₹50,000)</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-left">
-                <div className="flex items-center space-x-2">
-                  <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
-                  <span className="text-white/90">Complete Development (₹30,000)</span>
+                {/* Value Proposition */}
+                <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-4 sm:p-6 max-w-2xl mx-auto">
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-4">🎓 What You Get (Total Value: ₹50,000)</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3 text-left">
+                    <div className="flex items-start space-x-2">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                      </svg>
+                      <span className="text-sm sm:text-base text-white/90">Complete Development (₹30,000)</span>
+                    </div>
+                    <div className="flex items-start space-x-2">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                      </svg>
+                      <span className="text-sm sm:text-base text-white/90">Complete Documentation (₹8,000)</span>
+                    </div>
+                    <div className="flex items-start space-x-2">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                      </svg>
+                      <span className="text-sm sm:text-base text-white/90">Project Explanation (₹5,000)</span>
+                    </div>
+                    <div className="flex items-start space-x-2">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                      </svg>
+                      <span className="text-sm sm:text-base text-white/90">Internship Certificate (₹7,000)</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-white/10 space-y-2">
+                    <div className="flex justify-between items-center gap-2">
+                      <span className="text-sm sm:text-base text-white/70">Total Value:</span>
+                      <span className="text-xl sm:text-2xl font-bold text-white">₹50,000</span>
+                    </div>
+                    <div className="flex justify-between items-center gap-2">
+                      <span className="text-sm sm:text-base text-teal font-semibold">Student Price:</span>
+                      <span className="text-lg sm:text-2xl font-bold text-teal break-words text-right">₹20,000 - ₹50,000</span>
+                    </div>
+                    <div className="flex justify-between items-center gap-2">
+                      <span className="text-sm sm:text-base text-green-400 font-semibold">You Save:</span>
+                      <span className="text-lg sm:text-xl font-bold text-green-400">₹10,000 - ₹30,000</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
-                  <span className="text-white/90">Complete Documentation (₹8,000)</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
-                  <span className="text-white/90">Project Explanation (₹5,000)</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
-                  <span className="text-white/90">Internship Certificate (₹7,000)</span>
-                </div>
-              </div>
-              <div className="mt-4 pt-4 border-t border-white/10">
-                <div className="flex justify-between items-center">
-                  <span className="text-white/70">Total Value:</span>
-                  <span className="text-2xl font-bold text-white">₹50,000</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-teal font-semibold">Student Price:</span>
-                  <span className="text-2xl font-bold text-teal">₹20,000 - ₹50,000</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-green-400 font-semibold">You Save:</span>
-                  <span className="text-xl font-bold text-green-400">₹10,000 - ₹30,000</span>
-                </div>
-              </div>
-            </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {[
               {
                 name: "Basic Projects",
@@ -475,7 +475,10 @@ const StudentProjects = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className={`relative bg-white/5 backdrop-blur-lg border rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 hover:shadow-2xl ${
+                whileHover={{ y: -10 }}
+                className="group cursor-pointer h-full"
+              >
+                <div className={`relative bg-white/5 backdrop-blur-lg border rounded-2xl p-6 sm:p-8 hover:bg-white/10 transition-all duration-300 hover:shadow-2xl h-full flex flex-col ${
                   plan.popular 
                     ? 'border-teal/50 shadow-2xl shadow-teal/25' 
                     : 'border-white/10'
@@ -489,32 +492,32 @@ const StudentProjects = () => {
                   </div>
                 )}
                 
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold font-poppins text-white mb-2">
+                <div className="text-center mb-6 flex-grow">
+                  <h3 className="text-xl sm:text-2xl font-bold font-poppins text-white mb-2">
                     {plan.name}
                   </h3>
                   <div className="mb-2">
                     {plan.originalPrice && (
-                      <div className="text-lg text-white/50 line-through mb-1">
+                      <div className="text-base sm:text-lg text-white/50 line-through mb-1">
                         {plan.originalPrice}
                       </div>
                     )}
-                    <div className="text-3xl font-bold text-teal">
+                    <div className="text-2xl sm:text-3xl font-bold text-teal break-words">
                       {plan.price}
                     </div>
                     {plan.originalPrice && (
-                      <div className="text-sm text-green-400 font-semibold">
+                      <div className="text-xs sm:text-sm text-green-400 font-semibold mt-1">
                         Save ₹{Math.floor((parseInt(plan.originalPrice.replace('₹', '').replace(',', '')) - parseInt(plan.price.split(' - ')[0].replace('₹', '').replace(',', ''))) / 1000)}K+
                       </div>
                     )}
                   </div>
-                  <p className="text-white/70 mb-4">
+                  <p className="text-sm sm:text-base text-white/70 mb-4">
                     {plan.description}
                   </p>
                   
                   {/* Project Examples */}
-                  <div className="bg-white/5 rounded-xl p-4">
-                    <h4 className="text-sm font-semibold text-teal mb-2">Example Projects:</h4>
+                  <div className="bg-white/5 rounded-xl p-3 sm:p-4">
+                    <h4 className="text-xs sm:text-sm font-semibold text-teal mb-2">Example Projects:</h4>
                     <div className="flex flex-wrap gap-1 justify-center">
                       {plan.examples.map((example, exampleIndex) => (
                         <span key={exampleIndex} className="text-xs bg-teal/20 text-teal px-2 py-1 rounded-full">
@@ -525,13 +528,13 @@ const StudentProjects = () => {
                   </div>
                 </div>
                 
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                   {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center space-x-3 text-white/80">
-                      <svg className="w-5 h-5 text-teal" fill="currentColor" viewBox="0 0 24 24">
+                    <li key={featureIndex} className="flex items-start space-x-2 sm:space-x-3 text-sm sm:text-base text-white/80">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 text-teal flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                       </svg>
-                      <span>{feature}</span>
+                      <span className="flex-1">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -540,7 +543,7 @@ const StudentProjects = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => document.getElementById('student-form')?.scrollIntoView({ behavior: 'smooth' })}
-                  className={`w-full py-3 rounded-xl font-semibold transition-all duration-300 ${
+                  className={`w-full py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 ${
                     plan.popular
                       ? 'bg-gradient-to-r from-teal to-purple text-white hover:shadow-lg hover:shadow-teal/25'
                       : 'bg-white/10 text-white border border-white/20 hover:bg-white/20'
@@ -548,6 +551,7 @@ const StudentProjects = () => {
                 >
                   Get Started
                 </motion.button>
+              </div>
               </motion.div>
             ))}
           </div>
