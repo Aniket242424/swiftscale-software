@@ -89,7 +89,7 @@ const Pricing = () => {
             Professional Websites <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">Starting ₹24,999</span>
           </h2>
           <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto mb-4">
-            Perfect for businesses worldwide - from local shops to global enterprises. Get your professional website with free domain & hosting. Special launch pricing!
+            Perfect for businesses worldwide - from local shops to global enterprises. Get your professional website with free domain & hosting included.
           </p>
           <p className="text-sm text-white/60 max-w-2xl mx-auto mb-8">
             <strong>Note:</strong> All plans include post-delivery support. For ongoing maintenance, updates, and long-term partnership, we offer dedicated maintenance packages starting from ₹5,000/month.
@@ -240,7 +240,7 @@ const Pricing = () => {
           className="text-center mt-12"
         >
           <p className="text-white/80 mb-6">
-            Ready to grow your business online? Get started today!
+            Ready to grow your business online? Let's build something amazing together!
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}
@@ -248,7 +248,7 @@ const Pricing = () => {
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             className="btn-primary"
           >
-            Get Your Website Now - ₹24,999
+            Start Your Project - ₹24,999
           </motion.button>
         </motion.div>
       </div>

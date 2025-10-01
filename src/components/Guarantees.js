@@ -111,7 +111,7 @@ const Guarantees = () => {
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 className="bg-gradient-to-r from-green-500 to-teal text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-green-500/25"
               >
-                Start Your Project Now
+                Start Your Project
               </motion.button>
               <motion.a
                 href="https://wa.me/918788155105?text=Hi!%20I%20want%20to%20discuss%20a%20project%20with%20guarantees"

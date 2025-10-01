@@ -23,6 +23,7 @@ const Navbar = () => {
     { name: 'Pricing', href: '#pricing' },
     { name: 'About', href: '#about' },
     { name: 'Team', href: '#team' },
+    { name: 'Careers', href: '/careers', isExternal: true },
     { name: 'Contact', href: '#contact' }
   ];
 
@@ -48,6 +49,10 @@ const Navbar = () => {
               <motion.a
                 key={index}
                 href={item.href}
+                onClick={item.isExternal ? undefined : (e) => {
+                  e.preventDefault();
+                  document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' });
+                }}
                 whileHover={{ y: -2 }}
                 className="text-white/80 hover:text-teal transition-colors duration-300 font-medium"
               >
@@ -99,7 +104,11 @@ const Navbar = () => {
               <motion.a
                 key={index}
                 href={item.href}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={item.isExternal ? () => setIsMobileMenuOpen(false) : (e) => {
+                  e.preventDefault();
+                  document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' });
+                  setIsMobileMenuOpen(false);
+                }}
                 whileHover={{ x: 10 }}
                 className="block text-white/80 hover:text-teal transition-colors duration-300 font-medium px-4"
               >

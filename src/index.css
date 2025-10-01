@@ -91,6 +91,18 @@
   }
 }
 
+/* Custom select dropdown styling */
+select option {
+  background-color: #1e293b !important;
+  color: white !important;
+  padding: 8px 12px;
+}
+
+select:focus option {
+  background-color: #334155 !important;
+  color: white !important;
+}
+
 @layer components {
   .btn-primary {
     @apply bg-gradient-to-r from-teal to-purple text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-teal/25;

@@ -61,7 +61,7 @@ const Hero = () => {
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
             </svg>
-            <span className="font-semibold">🔥 Launch Special: 30% OFF + Free Domain & Hosting - Limited Time!</span>
+            <span className="font-semibold">🚀 Professional Software Solutions - Quality Guaranteed</span>
           </div>
         </motion.div>
 
@@ -97,6 +97,15 @@ const Hero = () => {
           >
             View Portfolio
           </motion.button>
+          
+          <motion.a
+            href="/careers"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-gradient-to-r from-green-500 to-teal text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-green-500/25"
+          >
+            💰 Join Our Team
+          </motion.a>
         </motion.div>
 
         {/* Scroll Indicator */}

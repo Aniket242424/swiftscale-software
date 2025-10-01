@@ -12,6 +12,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsAppWidget from './components/WhatsAppWidget';
 import StudentProjects from './components/StudentProjects';
+import CareerAffiliate from './components/CareerAffiliate';
 
 // Main website component
 const MainWebsite = () => (
@@ -38,6 +39,9 @@ function App() {
         <Route path="/student-projects" element={<StudentProjects />} />
         <Route path="/academic-solutions" element={<StudentProjects />} />
         <Route path="/final-year-projects" element={<StudentProjects />} />
+        <Route path="/careers" element={<CareerAffiliate />} />
+        <Route path="/affiliate" element={<CareerAffiliate />} />
+        <Route path="/join-us" element={<CareerAffiliate />} />
       </Routes>
     </Router>
   );
