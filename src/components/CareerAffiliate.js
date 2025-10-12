@@ -20,6 +20,8 @@ const CareerAffiliate = () => {
   const [emailContent, setEmailContent] = useState('');
   const [errors, setErrors] = useState({});
   const [showToast, setShowToast] = useState(false);
+  
+  // Force deployment trigger
 
   // Toast notification effect
   useEffect(() => {
