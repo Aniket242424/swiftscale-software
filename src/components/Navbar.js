@@ -51,7 +51,12 @@ const Navbar = () => {
                 href={item.href}
                 onClick={item.isExternal ? undefined : (e) => {
                   e.preventDefault();
-                  document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' });
+                  const targetElement = document.querySelector(item.href);
+                  if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    console.log('Element not found:', item.href);
+                  }
                 }}
                 whileHover={{ y: -2 }}
                 className="text-white/80 hover:text-teal transition-colors duration-300 font-medium"
@@ -104,9 +109,17 @@ const Navbar = () => {
               <motion.a
                 key={index}
                 href={item.href}
-                onClick={item.isExternal ? () => setIsMobileMenuOpen(false) : (e) => {
+                onClick={item.isExternal ? () => {
+                  setIsMobileMenuOpen(false);
+                  window.location.href = item.href;
+                } : (e) => {
                   e.preventDefault();
-                  document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' });
+                  const targetElement = document.querySelector(item.href);
+                  if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    console.log('Element not found:', item.href);
+                  }
                   setIsMobileMenuOpen(false);
                 }}
                 whileHover={{ x: 10 }}
