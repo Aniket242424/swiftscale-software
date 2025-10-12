@@ -312,78 +312,78 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-white/90 mb-2">
-                      Phone Number
-                    </label>
-                    <div className="flex">
-                      <select
-                        id="countryCode"
-                        name="countryCode"
-                        value={formData.countryCode || '+91'}
-                        onChange={handleChange}
-                        className={`w-24 px-3 py-3 bg-white/10 border rounded-l-xl text-white focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 ${
-                          errors.phone 
-                            ? 'border-red-400 focus:ring-red-400' 
-                            : 'border-white/20 focus:ring-teal'
-                        }`}
-                      >
-                        <option value="+91" className="bg-navy">+91</option>
-                        <option value="+1" className="bg-navy">+1</option>
-                        <option value="+44" className="bg-navy">+44</option>
-                        <option value="+61" className="bg-navy">+61</option>
-                        <option value="+86" className="bg-navy">+86</option>
-                        <option value="+971" className="bg-navy">+971</option>
-                        <option value="+966" className="bg-navy">+966</option>
-                        <option value="+65" className="bg-navy">+65</option>
-                      </select>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className={`flex-1 px-4 py-3 bg-white/10 border rounded-r-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 border-l-0 ${
-                          errors.phone 
-                            ? 'border-red-400 focus:ring-red-400' 
-                            : 'border-white/20 focus:ring-teal'
-                        }`}
-                        placeholder="9876543210"
-                      />
-                    </div>
-                    {errors.phone && (
-                      <p className="mt-1 text-sm text-red-400">{errors.phone}</p>
-                    )}
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="projectType" className="block text-sm font-medium text-white/90 mb-2">
-                      Project Type *
-                    </label>
+                {/* Phone Number - Full width on mobile */}
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-white/90 mb-2">
+                    Phone Number
+                  </label>
+                  <div className="flex">
                     <select
-                      id="projectType"
-                      name="projectType"
-                      value={formData.projectType}
+                      id="countryCode"
+                      name="countryCode"
+                      value={formData.countryCode || '+91'}
                       onChange={handleChange}
-                      required
-                      className={`w-full px-4 py-3 bg-white/10 border rounded-xl text-white focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 ${
-                        errors.projectType 
+                      className={`w-20 sm:w-24 px-2 sm:px-3 py-3 bg-white/10 border rounded-l-xl text-white focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 ${
+                        errors.phone 
                           ? 'border-red-400 focus:ring-red-400' 
                           : 'border-white/20 focus:ring-teal'
                       }`}
                     >
-                      <option value="" className="bg-navy">Select project type</option>
-                      {projectTypes.map((type, index) => (
-                        <option key={index} value={type} className="bg-navy">
-                          {type}
-                        </option>
-                      ))}
+                      <option value="+91" className="bg-navy">+91</option>
+                      <option value="+1" className="bg-navy">+1</option>
+                      <option value="+44" className="bg-navy">+44</option>
+                      <option value="+61" className="bg-navy">+61</option>
+                      <option value="+86" className="bg-navy">+86</option>
+                      <option value="+971" className="bg-navy">+971</option>
+                      <option value="+966" className="bg-navy">+966</option>
+                      <option value="+65" className="bg-navy">+65</option>
                     </select>
-                    {errors.projectType && (
-                      <p className="mt-1 text-sm text-red-400">{errors.projectType}</p>
-                    )}
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className={`flex-1 px-4 py-3 bg-white/10 border rounded-r-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 border-l-0 ${
+                        errors.phone 
+                          ? 'border-red-400 focus:ring-red-400' 
+                          : 'border-white/20 focus:ring-teal'
+                      }`}
+                      placeholder="9876543210"
+                    />
                   </div>
+                  {errors.phone && (
+                    <p className="mt-1 text-sm text-red-400">{errors.phone}</p>
+                  )}
+                </div>
+
+                {/* Project Type - Full width */}
+                <div>
+                  <label htmlFor="projectType" className="block text-sm font-medium text-white/90 mb-2">
+                    Project Type *
+                  </label>
+                  <select
+                    id="projectType"
+                    name="projectType"
+                    value={formData.projectType}
+                    onChange={handleChange}
+                    required
+                    className={`w-full px-4 py-3 bg-white/10 border rounded-xl text-white focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 ${
+                      errors.projectType 
+                        ? 'border-red-400 focus:ring-red-400' 
+                        : 'border-white/20 focus:ring-teal'
+                    }`}
+                  >
+                    <option value="" className="bg-navy">Select project type</option>
+                    {projectTypes.map((type, index) => (
+                      <option key={index} value={type} className="bg-navy">
+                        {type}
+                      </option>
+                    ))}
+                  </select>
+                  {errors.projectType && (
+                    <p className="mt-1 text-sm text-red-400">{errors.projectType}</p>
+                  )}
                 </div>
 
                 <div>

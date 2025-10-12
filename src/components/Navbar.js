@@ -81,8 +81,11 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <motion.button
             whileTap={{ scale: 0.95 }}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-white"
+            onClick={() => {
+              console.log('Mobile menu button clicked, current state:', isMobileMenuOpen);
+              setIsMobileMenuOpen(!isMobileMenuOpen);
+            }}
+            className="lg:hidden p-2 text-white z-50 relative"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isMobileMenuOpen ? (
@@ -102,7 +105,7 @@ const Navbar = () => {
             height: isMobileMenuOpen ? 'auto' : 0
           }}
           transition={{ duration: 0.3 }}
-          className="lg:hidden overflow-hidden bg-navy/95 backdrop-blur-lg border-t border-white/10"
+          className="lg:hidden overflow-hidden bg-navy/95 backdrop-blur-lg border-t border-white/10 relative z-50"
         >
           <div className="py-4 space-y-4">
             {navItems.map((item, index) => (
