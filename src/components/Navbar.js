@@ -108,23 +108,6 @@ const Navbar = () => {
           className="lg:hidden overflow-hidden bg-navy/95 backdrop-blur-lg border-t border-white/10 relative z-50"
         >
           <div className="py-4 space-y-4">
-            {/* Debug button */}
-            <div className="px-4 pb-2">
-              <button
-                onClick={() => {
-                  console.log('Testing navigation elements...');
-                  const elements = ['#home', '#services', '#features', '#portfolio', '#pricing', '#about', '#team', '#contact'];
-                  elements.forEach(selector => {
-                    const element = document.querySelector(selector);
-                    console.log(`${selector}: ${element ? 'Found' : 'Not found'}`);
-                  });
-                }}
-                className="text-xs text-teal/70 hover:text-teal"
-              >
-                🧪 Debug Navigation
-              </button>
-            </div>
-            
             {navItems.map((item, index) => (
               <motion.a
                 key={index}
