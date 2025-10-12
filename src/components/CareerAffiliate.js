@@ -191,30 +191,68 @@ ${formData.name}`;
             </p>
             
             {/* Simple Job Posting */}
-            <div className="bg-gradient-to-r from-teal/20 to-purple/20 backdrop-blur-lg border border-teal/30 rounded-2xl p-6 mb-8 max-w-4xl mx-auto">
-              <h2 className="text-2xl font-bold text-white mb-4">🚀 Sales Associate - ₹3,000/month</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-white/90">
-                <div>
-                  <h3 className="text-lg font-semibold text-teal mb-2">📋 What You'll Do:</h3>
-                  <ul className="text-sm space-y-1">
-                    <li>• Find businesses needing websites</li>
-                    <li>• Contact potential clients via phone/social media</li>
-                    <li>• Explain our web development services</li>
-                    <li>• Generate qualified leads for our team</li>
+            <div className="bg-gradient-to-r from-teal/20 to-purple/20 backdrop-blur-lg border border-teal/30 rounded-2xl p-8 mb-8 max-w-4xl mx-auto">
+              <div className="text-center mb-6">
+                <h2 className="text-3xl font-bold text-white mb-2">🚀 Sales Associate Position</h2>
+                <p className="text-teal font-semibold text-lg">₹3,000/month + Commission</p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-white/90">
+                <div className="bg-black/20 rounded-xl p-6">
+                  <h3 className="text-xl font-semibold text-teal mb-4 flex items-center">
+                    📋 What You'll Do:
+                  </h3>
+                  <ul className="text-sm space-y-2">
+                    <li className="flex items-start">
+                      <span className="text-teal mr-2">•</span>
+                      Find businesses needing websites
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-teal mr-2">•</span>
+                      Contact potential clients via phone/social media
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-teal mr-2">•</span>
+                      Explain our web development services
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-teal mr-2">•</span>
+                      Generate qualified leads for our team
+                    </li>
                   </ul>
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-teal mb-2">✅ Requirements:</h3>
-                  <ul className="text-sm space-y-1">
-                    <li>• Basic communication skills</li>
-                    <li>• Smartphone with internet access</li>
-                    <li>• 4-5 hours daily availability</li>
-                    <li>• No experience needed!</li>
+                
+                <div className="bg-black/20 rounded-xl p-6">
+                  <h3 className="text-xl font-semibold text-teal mb-4 flex items-center">
+                    ✅ Requirements:
+                  </h3>
+                  <ul className="text-sm space-y-2">
+                    <li className="flex items-start">
+                      <span className="text-teal mr-2">•</span>
+                      12th pass (minimum education)
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-teal mr-2">•</span>
+                      Basic communication skills
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-teal mr-2">•</span>
+                      Smartphone with internet access
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-teal mr-2">•</span>
+                      3-4 hours daily availability
+                    </li>
                   </ul>
                 </div>
               </div>
-              <div className="mt-4 text-center">
-                <span className="text-teal font-semibold">💰 Base: ₹3,000/month + Commission on successful projects</span>
+              
+              <div className="mt-6 text-center">
+                <div className="bg-gradient-to-r from-teal/30 to-purple/30 rounded-lg p-4">
+                  <span className="text-white font-semibold text-lg">
+                    💰 Base: ₹3,000/month + Commission on successful projects
+                  </span>
+                </div>
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
