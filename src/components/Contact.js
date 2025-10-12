@@ -305,6 +305,18 @@ const Contact = () => {
                   />
                 </div>
 
+                {/* Test Button */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    console.log('Test button clicked!');
+                    setSubmitStatus('success');
+                  }}
+                  className="w-full mb-4 px-4 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl transition-colors duration-300"
+                >
+                  🧪 Test Button (Click to verify form works)
+                </button>
+
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
@@ -313,6 +325,14 @@ const Contact = () => {
                   className={`w-full btn-primary ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''}`}
                   onClick={(e) => {
                     console.log('Button clicked!', e);
+                    // Force form submission for testing
+                    const form = e.target.closest('form');
+                    if (form) {
+                      console.log('Found form, submitting...');
+                      form.requestSubmit();
+                    } else {
+                      console.log('Form not found!');
+                    }
                   }}
                 >
                   {isSubmitting ? (
