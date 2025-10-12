@@ -15,7 +15,7 @@ const Services = () => {
         </svg>
       ),
       title: "Website Development",
-      description: "Modern, responsive websites built with cutting-edge technologies. From landing pages to complex web applications."
+      description: "Modern, responsive websites built with cutting-edge technologies and AI-enhanced development process. From landing pages to complex web applications with intelligent optimization."
     },
     {
       icon: (
@@ -71,7 +71,7 @@ const Services = () => {
             Our <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">Services</span>
           </h2>
           <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto">
-            We provide comprehensive digital solutions to help your business grow and scale in the modern world.
+            We provide comprehensive digital solutions powered by intelligent development processes to help your business grow and scale in the modern world.
           </p>
         </motion.div>
 

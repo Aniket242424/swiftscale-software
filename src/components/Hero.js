@@ -61,7 +61,7 @@ const Hero = () => {
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
             </svg>
-            <span className="font-semibold">🚀 Professional Software Solutions - Quality Guaranteed</span>
+            <span className="font-semibold">🚀 AI-Enhanced Professional Software Solutions - Quality Guaranteed</span>
           </div>
         </motion.div>
 
@@ -71,7 +71,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed"
         >
-          We design and build modern websites, cross-platform apps, and custom software with speed and reliability.
+          We design and build modern websites, cross-platform apps, and custom software using intelligent development processes for enhanced speed, quality, and reliability.
         </motion.p>
 
         <motion.div
