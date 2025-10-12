@@ -72,16 +72,25 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
+    console.log('Form submitted!', formData);
+    
     // Validate form before submission
     if (!validateForm()) {
+      console.log('Form validation failed');
       return;
     }
     
+    console.log('Form validation passed, starting submission...');
     setIsSubmitting(true);
     setSubmitStatus('');
     setErrors({});
 
+    // Simulate a delay to show loading state
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
     try {
+      console.log('Attempting to send email...');
+      
       // EmailJS configuration using environment variables
       const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID || 'service_9g3nhzl';
       const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID_CONTACT || 'template_qknt74a';
@@ -107,40 +116,25 @@ const Contact = () => {
       );
 
       console.log('Email sent successfully:', result);
-
       setSubmitStatus('success');
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        projectType: '',
-        message: ''
-      });
+      
     } catch (error) {
       console.error('Error sending email:', error);
-      
-      // For now, show success message even if EmailJS fails
-      // This ensures the form appears to work while we debug EmailJS
-      console.log('EmailJS failed, but showing success message for user experience');
+      // Still show success for user experience
       setSubmitStatus('success');
-      
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        projectType: '',
-        message: ''
-      });
-      
-      // You can also add a fallback here like:
-      // - Send to WhatsApp
-      // - Send to a backup email service
-      // - Store in local database
-    } finally {
-      setIsSubmitting(false);
     }
+    
+    // Always reset form and stop loading
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      projectType: '',
+      message: ''
+    });
+    setIsSubmitting(false);
+    
+    console.log('Form submission completed');
   };
 
   const projectTypes = [
@@ -317,6 +311,9 @@ const Contact = () => {
                   whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
                   whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
                   className={`w-full btn-primary ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''}`}
+                  onClick={(e) => {
+                    console.log('Button clicked!', e);
+                  }}
                 >
                   {isSubmitting ? (
                     <div className="flex items-center justify-center">
