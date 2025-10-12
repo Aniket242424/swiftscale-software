@@ -189,6 +189,34 @@ ${formData.name}`;
             <p className="text-xl sm:text-2xl text-white/90 mb-8 leading-relaxed">
               Part-time Sales Associate positions available. Work from home, earn guaranteed base salary plus fixed commissions while helping clients get exceptional software solutions.
             </p>
+            
+            {/* Simple Job Posting */}
+            <div className="bg-gradient-to-r from-teal/20 to-purple/20 backdrop-blur-lg border border-teal/30 rounded-2xl p-6 mb-8 max-w-4xl mx-auto">
+              <h2 className="text-2xl font-bold text-white mb-4">🚀 Sales Associate - ₹3,000/month</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-white/90">
+                <div>
+                  <h3 className="text-lg font-semibold text-teal mb-2">📋 What You'll Do:</h3>
+                  <ul className="text-sm space-y-1">
+                    <li>• Find businesses needing websites</li>
+                    <li>• Contact potential clients via phone/social media</li>
+                    <li>• Explain our web development services</li>
+                    <li>• Generate qualified leads for our team</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-teal mb-2">✅ Requirements:</h3>
+                  <ul className="text-sm space-y-1">
+                    <li>• Basic communication skills</li>
+                    <li>• Smartphone with internet access</li>
+                    <li>• 4-5 hours daily availability</li>
+                    <li>• No experience needed!</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="mt-4 text-center">
+                <span className="text-teal font-semibold">💰 Base: ₹3,000/month + Commission on successful projects</span>
+              </div>
+            </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button
                 whileHover={{ scale: 1.05 }}
