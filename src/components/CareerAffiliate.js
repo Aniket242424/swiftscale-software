@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
@@ -18,24 +18,22 @@ const CareerAffiliate = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
   const [emailContent, setEmailContent] = useState('');
-  const [errors, setErrors] = useState({});
-  const [showToast, setShowToast] = useState(false);
-  
-  // Force deployment trigger
+  // const [errors, setErrors] = useState({});
+  // const [showToast, setShowToast] = useState(false);
 
   // Toast notification effect
-  useEffect(() => {
-    if (showToast) {
-      const timer = setTimeout(() => {
-        setShowToast(false);
-      }, 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [showToast]);
+  // useEffect(() => {
+  //   if (showToast) {
+  //     const timer = setTimeout(() => {
+  //       setShowToast(false);
+  //     }, 5000);
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, [showToast]);
 
-  const showSuccessToast = () => {
-    setShowToast(true);
-  };
+  // const showSuccessToast = () => {
+  //   setShowToast(true);
+  // };
 
   const handleChange = (e) => {
     if (e.target.name === 'cv') {
