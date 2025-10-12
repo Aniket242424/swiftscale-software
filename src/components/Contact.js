@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
@@ -12,6 +12,7 @@ const Contact = () => {
     name: '',
     email: '',
     phone: '',
+    countryCode: '+91',
     projectType: '',
     message: ''
   });
@@ -19,6 +20,21 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
   const [errors, setErrors] = useState({});
+  const [showToast, setShowToast] = useState(false);
+
+  // Toast notification effect
+  useEffect(() => {
+    if (showToast) {
+      const timer = setTimeout(() => {
+        setShowToast(false);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [showToast]);
+
+  const showSuccessToast = () => {
+    setShowToast(true);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,34 +55,60 @@ const Contact = () => {
   const validateForm = () => {
     const newErrors = {};
     
+    console.log('Validating form data:', formData);
+    
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
+      console.log('Validation failed: Name is empty');
     }
     
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
+      console.log('Validation failed: Email is empty');
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Please enter a valid email address';
+      console.log('Validation failed: Email format is invalid');
     }
     
     if (!formData.phone.trim()) {
       newErrors.phone = 'Phone number is required';
-    } else if (!/^[6-9]\d{9}$/.test(formData.phone.replace(/\D/g, ''))) {
-      newErrors.phone = 'Please enter a valid 10-digit Indian phone number';
+      console.log('Validation failed: Phone is empty');
+    } else {
+      // Remove all non-digits and check if it's a valid phone number
+      const phoneDigits = formData.phone.replace(/\D/g, '');
+      console.log('Phone validation - Country Code:', formData.countryCode, 'Phone:', formData.phone, 'Digits only:', phoneDigits);
+      
+      // Validate based on country code
+      if (formData.countryCode === '+91' && !/^[6-9]\d{9}$/.test(phoneDigits)) {
+        newErrors.phone = 'Please enter a valid 10-digit Indian phone number';
+        console.log('Validation failed: Indian phone format is invalid');
+      } else if (formData.countryCode === '+1' && !/^\d{10}$/.test(phoneDigits)) {
+        newErrors.phone = 'Please enter a valid 10-digit US phone number';
+        console.log('Validation failed: US phone format is invalid');
+      } else if (phoneDigits.length < 7 || phoneDigits.length > 15) {
+        newErrors.phone = 'Please enter a valid phone number';
+        console.log('Validation failed: Phone number length is invalid');
+      }
     }
     
     if (!formData.projectType) {
       newErrors.projectType = 'Please select a project type';
+      console.log('Validation failed: Project type not selected');
     }
     
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required';
+      console.log('Validation failed: Message is empty');
     } else if (formData.message.trim().length < 10) {
       newErrors.message = 'Message must be at least 10 characters long';
+      console.log('Validation failed: Message too short');
     }
     
+    console.log('Validation errors:', newErrors);
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    const isValid = Object.keys(newErrors).length === 0;
+    console.log('Form validation result:', isValid);
+    return isValid;
   };
 
   const handleSubmit = async (e) => {
@@ -85,55 +127,55 @@ const Contact = () => {
     setSubmitStatus('');
     setErrors({});
 
-    // Simulate a delay to show loading state
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
     try {
-      console.log('Attempting to send email...');
+      console.log('Attempting to send email via EmailJS...');
       
-      // EmailJS configuration using environment variables
-      const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID || 'service_9g3nhzl';
-      const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID_CONTACT || 'template_qknt74a';
-      const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'Wq1KCQz6S9BnCCZOU';
+      // EmailJS configuration - using your existing setup
+      const serviceId = 'service_9g3nhzl';
+      const templateId = 'template_qknt74a';
+      const publicKey = 'Wq1KCQz6S9BnCCZOU';
 
       console.log('EmailJS Config:', { serviceId, templateId, publicKey });
 
       // Initialize EmailJS
       emailjs.init(publicKey);
 
-      // Send email using EmailJS
+      // Send email using EmailJS with correct template variables
+      const fullPhoneNumber = `${formData.countryCode} ${formData.phone}`;
       const result = await emailjs.send(
         serviceId,
         templateId,
         {
           from_name: formData.name,
           from_email: formData.email,
-          phone: formData.phone,
+          phone: fullPhoneNumber,
           project_type: formData.projectType,
           message: formData.message,
-          to_name: 'SwiftScale Team',
+          name: formData.name,  // Added this for the template
+          email: formData.email,  // Added this for reply-to
         }
       );
 
-      console.log('Email sent successfully:', result);
+      console.log('Email sent successfully via EmailJS:', result);
       setSubmitStatus('success');
+      showSuccessToast();
+      
+      // Reset form after successful submission
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        countryCode: '+91',
+        projectType: '',
+        message: ''
+      });
       
     } catch (error) {
-      console.error('Error sending email:', error);
-      // Still show success for user experience
-      setSubmitStatus('success');
+      console.error('Error sending email via EmailJS:', error);
+      setSubmitStatus('error');
     }
     
-    // Always reset form and stop loading
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      projectType: '',
-      message: ''
-    });
     setIsSubmitting(false);
-    
     console.log('Form submission completed');
   };
 
@@ -149,7 +191,26 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="section-padding relative overflow-hidden">
+    <>
+      {/* Toast Notification */}
+      {showToast && (
+        <motion.div
+          initial={{ opacity: 0, y: -50, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: -50, scale: 0.9 }}
+          className="fixed top-4 right-4 z-[9999] bg-green-500 text-white px-6 py-4 rounded-xl shadow-lg flex items-center space-x-3"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+          <div>
+            <p className="font-semibold">Success!</p>
+            <p className="text-sm">Your consultation request has been sent!</p>
+          </div>
+        </motion.div>
+      )}
+
+      <section id="contact" className="section-padding relative overflow-hidden">
       {/* Animated Gradient Background */}
       <div className="absolute inset-0 gradient-bg opacity-90"></div>
       
@@ -223,7 +284,7 @@ const Contact = () => {
                       placeholder="Your name"
                     />
                     {errors.name && (
-                      <p className="text-red-400 text-sm mt-1">{errors.name}</p>
+                      <p className="mt-1 text-sm text-red-400">{errors.name}</p>
                     )}
                   </div>
                   
@@ -256,15 +317,44 @@ const Contact = () => {
                     <label htmlFor="phone" className="block text-sm font-medium text-white/90 mb-2">
                       Phone Number
                     </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent transition-all duration-300"
-                      placeholder="+91 8788155105"
-                    />
+                    <div className="flex">
+                      <select
+                        id="countryCode"
+                        name="countryCode"
+                        value={formData.countryCode || '+91'}
+                        onChange={handleChange}
+                        className={`w-24 px-3 py-3 bg-white/10 border rounded-l-xl text-white focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 ${
+                          errors.phone 
+                            ? 'border-red-400 focus:ring-red-400' 
+                            : 'border-white/20 focus:ring-teal'
+                        }`}
+                      >
+                        <option value="+91" className="bg-navy">+91</option>
+                        <option value="+1" className="bg-navy">+1</option>
+                        <option value="+44" className="bg-navy">+44</option>
+                        <option value="+61" className="bg-navy">+61</option>
+                        <option value="+86" className="bg-navy">+86</option>
+                        <option value="+971" className="bg-navy">+971</option>
+                        <option value="+966" className="bg-navy">+966</option>
+                        <option value="+65" className="bg-navy">+65</option>
+                      </select>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className={`flex-1 px-4 py-3 bg-white/10 border rounded-r-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 border-l-0 ${
+                          errors.phone 
+                            ? 'border-red-400 focus:ring-red-400' 
+                            : 'border-white/20 focus:ring-teal'
+                        }`}
+                        placeholder="9876543210"
+                      />
+                    </div>
+                    {errors.phone && (
+                      <p className="mt-1 text-sm text-red-400">{errors.phone}</p>
+                    )}
                   </div>
                   
                   <div>
@@ -277,7 +367,11 @@ const Contact = () => {
                       value={formData.projectType}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent transition-all duration-300"
+                      className={`w-full px-4 py-3 bg-white/10 border rounded-xl text-white focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 ${
+                        errors.projectType 
+                          ? 'border-red-400 focus:ring-red-400' 
+                          : 'border-white/20 focus:ring-teal'
+                      }`}
                     >
                       <option value="" className="bg-navy">Select project type</option>
                       {projectTypes.map((type, index) => (
@@ -286,6 +380,9 @@ const Contact = () => {
                         </option>
                       ))}
                     </select>
+                    {errors.projectType && (
+                      <p className="mt-1 text-sm text-red-400">{errors.projectType}</p>
+                    )}
                   </div>
                 </div>
 
@@ -300,22 +397,17 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent transition-all duration-300 resize-none"
+                    className={`w-full px-4 py-3 bg-white/10 border rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 resize-none ${
+                      errors.message 
+                        ? 'border-red-400 focus:ring-red-400' 
+                        : 'border-white/20 focus:ring-teal'
+                    }`}
                     placeholder="Tell us about your project, goals, timeline, and any specific requirements..."
                   />
+                  {errors.message && (
+                    <p className="mt-1 text-sm text-red-400">{errors.message}</p>
+                  )}
                 </div>
-
-                {/* Test Button */}
-                <button
-                  type="button"
-                  onClick={() => {
-                    console.log('Test button clicked!');
-                    setSubmitStatus('success');
-                  }}
-                  className="w-full mb-4 px-4 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl transition-colors duration-300"
-                >
-                  🧪 Test Button (Click to verify form works)
-                </button>
 
                 <motion.button
                   type="submit"
@@ -323,16 +415,8 @@ const Contact = () => {
                   whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
                   whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
                   className={`w-full btn-primary ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''}`}
-                  onClick={(e) => {
-                    console.log('Button clicked!', e);
-                    // Force form submission for testing
-                    const form = e.target.closest('form');
-                    if (form) {
-                      console.log('Found form, submitting...');
-                      form.requestSubmit();
-                    } else {
-                      console.log('Form not found!');
-                    }
+                  onClick={() => {
+                    console.log('Book consultation button clicked!');
                   }}
                 >
                   {isSubmitting ? (
@@ -354,7 +438,7 @@ const Contact = () => {
                     animate={{ opacity: 1, y: 0 }}
                     className="mt-4 p-4 bg-green-500/20 border border-green-500/30 rounded-xl text-green-400 text-center"
                   >
-                    ✅ Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.
+                    ✅ Thank you! Your consultation request has been submitted successfully. We'll get back to you within 24 hours.
                     <div className="mt-3">
                       <p className="text-sm text-white/80 mb-2">Or reach us directly:</p>
                       <a 
@@ -477,6 +561,7 @@ const Contact = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
