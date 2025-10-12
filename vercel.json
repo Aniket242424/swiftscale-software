@@ -12,14 +12,14 @@
   "redirects": [
     {
       "source": "/(.*)",
+      "destination": "https://www.swiftscalesoftware.com/$1",
+      "permanent": true,
       "has": [
         {
           "type": "host",
           "value": "swiftscale-software.vercel.app"
         }
-      ],
-      "destination": "https://www.swiftscalesoftware.com/$1",
-      "permanent": true
+      ]
     }
   ],
   "routes": [
