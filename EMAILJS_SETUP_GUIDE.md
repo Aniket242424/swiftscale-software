@@ -48,7 +48,7 @@ SwiftScale Website
 1. Create another template
 2. Use this template:
 
-**Subject:** New Student Project Request - {{from_name}}
+**Subject:**ate 30
 
 **Content:**
 ```

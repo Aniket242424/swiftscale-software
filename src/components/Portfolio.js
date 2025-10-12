@@ -9,6 +9,14 @@ const Portfolio = () => {
 
   const projects = [
     {
+      title: "Mama Bhelwale - Business Website",
+      description: "Modern, responsive website designed for a local food business featuring menu showcase, online ordering integration, and customer engagement features",
+      tech: ["React", "JavaScript", "Responsive Design", "Modern UI/UX", "Business Solutions"],
+      image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      liveUrl: "https://mama-bhelwale-w9bp.vercel.app/",
+      year: "2024"
+    },
+    {
       title: "COVID-19 Live Data Tracker",
       description: "Real-time coronavirus data visualization and tracking application built during the pandemic",
       tech: ["React", "JavaScript", "API Integration", "Data Visualization"],
