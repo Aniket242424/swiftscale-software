@@ -85,7 +85,7 @@ const Navbar = () => {
               console.log('Mobile menu button clicked, current state:', isMobileMenuOpen);
               setIsMobileMenuOpen(!isMobileMenuOpen);
             }}
-            className="lg:hidden p-2 text-white z-50 relative"
+            className={`lg:hidden p-2 text-white z-50 relative ${isMobileMenuOpen ? 'bg-white/10 rounded-lg' : ''}`}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isMobileMenuOpen ? (
@@ -108,22 +108,64 @@ const Navbar = () => {
           className="lg:hidden overflow-hidden bg-navy/95 backdrop-blur-lg border-t border-white/10 relative z-50"
         >
           <div className="py-4 space-y-4">
+            {/* Debug button */}
+            <div className="px-4 pb-2">
+              <button
+                onClick={() => {
+                  console.log('Testing navigation elements...');
+                  const elements = ['#home', '#services', '#features', '#portfolio', '#pricing', '#about', '#team', '#contact'];
+                  elements.forEach(selector => {
+                    const element = document.querySelector(selector);
+                    console.log(`${selector}: ${element ? 'Found' : 'Not found'}`);
+                  });
+                }}
+                className="text-xs text-teal/70 hover:text-teal"
+              >
+                🧪 Debug Navigation
+              </button>
+            </div>
+            
             {navItems.map((item, index) => (
               <motion.a
                 key={index}
                 href={item.href}
                 onClick={item.isExternal ? () => {
+                  console.log('Navigating to external page:', item.href);
                   setIsMobileMenuOpen(false);
-                  window.location.href = item.href;
+                  // Use setTimeout to ensure menu closes before navigation
+                  setTimeout(() => {
+                    window.location.href = item.href;
+                  }, 100);
                 } : (e) => {
                   e.preventDefault();
-                  const targetElement = document.querySelector(item.href);
-                  if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                  } else {
-                    console.log('Element not found:', item.href);
-                  }
+                  console.log('Attempting to scroll to:', item.href);
                   setIsMobileMenuOpen(false);
+                  
+                  // Use setTimeout to ensure menu closes before scrolling
+                  setTimeout(() => {
+                    const targetElement = document.querySelector(item.href);
+                    if (targetElement) {
+                      console.log('Element found, scrolling to:', item.href);
+                      targetElement.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                      });
+                    } else {
+                      console.log('Element not found:', item.href);
+                      // Fallback: try to scroll to the element by ID
+                      const elementId = item.href.replace('#', '');
+                      const elementById = document.getElementById(elementId);
+                      if (elementById) {
+                        console.log('Found element by ID, scrolling to:', elementId);
+                        elementById.scrollIntoView({ 
+                          behavior: 'smooth',
+                          block: 'start'
+                        });
+                      } else {
+                        console.log('Element not found by ID either:', elementId);
+                      }
+                    }
+                  }, 200);
                 }}
                 whileHover={{ x: 10 }}
                 className="block text-white/80 hover:text-teal transition-colors duration-300 font-medium px-4"
