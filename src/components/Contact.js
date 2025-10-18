@@ -547,7 +547,9 @@ const Contact = () => {
                   <motion.a
                     key={index}
                     whileHover={{ scale: 1.1 }}
-                    href="#"
+                    href={social.name === 'LinkedIn' ? 'https://www.linkedin.com/company/109686950/' : '#'}
+                    target={social.name === 'LinkedIn' ? '_blank' : '_self'}
+                    rel={social.name === 'LinkedIn' ? 'noopener noreferrer' : ''}
                     className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-white/80 hover:bg-teal/20 hover:text-teal transition-all duration-300"
                   >
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
