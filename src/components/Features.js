@@ -11,11 +11,11 @@ const Features = () => {
     {
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
         </svg>
       ),
-      title: "Lightning Fast",
-      description: "Optimized performance and blazing-fast load times for the best user experience."
+      title: "AI-First Approach",
+      description: "QraftAI is built AI-first — it understands your web app, generates test cases intelligently, and continuously improves coverage as your application evolves."
     },
     {
       icon: (
@@ -24,16 +24,16 @@ const Features = () => {
         </svg>
       ),
       title: "Reliable & Secure",
-      description: "Enterprise-grade security and 99.9% uptime guarantee for your peace of mind."
+      description: "Enterprise-grade security, 99.9% uptime, and cloud infrastructure managed by experts — so your product is always available and always protected."
     },
     {
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       ),
-      title: "User-Centric Design",
-      description: "Beautiful, intuitive interfaces that your users will love and engage with."
+      title: "Fast Delivery",
+      description: "AI-enhanced development processes mean faster builds, fewer bugs, and quicker time-to-market — without compromising quality."
     },
     {
       icon: (
@@ -41,8 +41,8 @@ const Features = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
         </svg>
       ),
-      title: "Scalable Solutions",
-      description: "Built to grow with your business, handling increased traffic and complexity seamlessly."
+      title: "Scalable Products",
+      description: "From MVP to enterprise scale — our cloud-native AI products are architected to grow with your business, handling millions of users seamlessly."
     }
   ];
 
@@ -60,7 +60,7 @@ const Features = () => {
             Why Choose <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">SwiftScale</span>
           </h2>
           <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto">
-            We combine cutting-edge technology with exceptional design to deliver solutions that exceed expectations.
+            We are an AI company. We build intelligent products and AI-powered solutions that give businesses a competitive edge in the modern world.
           </p>
         </motion.div>
 

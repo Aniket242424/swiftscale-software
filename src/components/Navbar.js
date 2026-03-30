@@ -17,13 +17,12 @@ const Navbar = () => {
 
   const navItems = [
     { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'Features', href: '#features' },
-    { name: 'Portfolio', href: '#portfolio' },
+    { name: 'Features', href: '#services' },
+    { name: 'Why QraftAI', href: '#features' },
+    { name: 'How It Works', href: '#portfolio' },
     { name: 'Pricing', href: '#pricing' },
     { name: 'About', href: '#about' },
     { name: 'Team', href: '#team' },
-    { name: 'Careers', href: '/careers', isExternal: true },
     { name: 'Contact', href: '#contact' }
   ];
 
@@ -74,7 +73,7 @@ const Navbar = () => {
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               className="btn-primary text-sm px-6 py-2"
             >
-              Get Started
+              Try QraftAI Free
             </motion.button>
           </div>
 

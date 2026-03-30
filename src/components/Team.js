@@ -4,44 +4,39 @@ import { motion } from 'framer-motion';
 const Team = () => {
   const teamMembers = [
     {
-      name: "Aniket Mahangade",
-      role: "Founder & Lead Developer",
-      description: "Ex-Amazon employee with over 8 years of experience in software development. Founded SwiftScale to help businesses leverage enterprise-grade technology for growth.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      initials: "AM",
-      expertise: ["Full-Stack Development", "Enterprise Architecture", "Project Management", "Business Strategy"]
+      name: "Omkar Chougale",
+      role: "Chief Executive Officer",
+      description: "Visionary leader steering SwiftScale's growth and strategic direction. Drives company vision, builds key partnerships, and ensures every client engagement delivers measurable business impact.",
+      initials: "OC",
+      expertise: ["Business Strategy", "Leadership", "Partnerships", "Vision & Growth"]
     },
     {
-      name: "Omkar Chougale",
-      role: "Software Developer & CTO",
-      description: "Experienced software developer with expertise in modern web technologies and system architecture. Leads technical strategy and development initiatives.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      initials: "OC",
-      expertise: ["Software Architecture", "Web Development", "Technical Leadership"]
+      name: "Aniket Mahangade",
+      role: "Chief Technology Officer",
+      description: "Ex-Amazon engineer with 8+ years of experience architecting scalable systems. Leads all technical decisions, drives AI-enhanced development processes, and ensures delivery of enterprise-grade software.",
+      initials: "AM",
+      expertise: ["Full-Stack Development", "Enterprise Architecture", "AI-Enhanced Dev", "System Design"]
+    },
+    {
+      name: "Soubhik Das",
+      role: "Growth & Investor Relations",
+      description: "The face of SwiftScale to the world. Pitches our product to clients and investors, builds compelling narratives around our solutions, and opens doors to funding and strategic growth opportunities.",
+      initials: "SB",
+      expertise: ["Product Pitching", "Investor Relations", "Business Development", "Brand Storytelling"]
     },
     {
       name: "Kunal Anarse",
-      role: "SDET & VP of Quality Assurance",
-      description: "Deep testing expert with extensive knowledge of Selenium, Playwright, and API testing. Ensures the highest quality standards for all projects.",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      role: "Cloud Infrastructure Expert",
+      description: "Owns SwiftScale's cloud strategy end-to-end. Designs and manages scalable, secure cloud environments that power our products with high availability, performance, and cost efficiency.",
       initials: "KA",
-      expertise: ["Test Automation", "Selenium", "Playwright", "API Testing"]
+      expertise: ["Cloud Architecture", "AWS / Azure / GCP", "DevOps & CI/CD", "Infrastructure Scaling"]
     },
     {
       name: "Sameer Tate",
-      role: "Marketing Expert & VP of Marketing",
-      description: "Strategic marketing professional with 12+ years of experience in digital marketing, brand building, and customer acquisition strategies.",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      role: "Product Manager & Marketing Lead",
+      description: "The internal engine of SwiftScale. Finds and owns client relationships, leads internal meetings, drives product direction based on market needs, and ensures the team ships what customers actually want.",
       initials: "ST",
-      expertise: ["Digital Marketing", "Brand Strategy", "Customer Acquisition"]
-    },
-    {
-      name: "Suraj Kule",
-      role: "Operations Manager",
-      description: "Handles company operations and event management. Ensures smooth day-to-day operations and memorable experiences for all company events and client engagements.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      initials: "SK",
-      expertise: ["Operations Management", "Event Coordination", "Client Relations", "Business Operations"]
+      expertise: ["Product Management", "Customer Acquisition", "Team Leadership", "Go-to-Market Strategy"]
     }
   ];
 
@@ -59,7 +54,7 @@ const Team = () => {
             Meet Our <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">Expert Team</span>
           </h2>
           <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto">
-            Our diverse team of professionals brings together years of experience in software development, quality assurance, and marketing to deliver exceptional results.
+            A lean, high-impact team of specialists — from engineering and cloud to product and investor relations — united by a single mission: building software that scales businesses.
           </p>
         </motion.div>
 

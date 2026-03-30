@@ -9,69 +9,59 @@ const Pricing = () => {
 
   const plans = [
     {
-      name: "Starter Website",
-      price: "₹24,999",
-      period: "one-time",
-      originalPrice: "₹39,999",
-      discount: "38% OFF",
-      description: "Perfect for small businesses, startups, and local shops worldwide",
+      name: "Starter",
+      price: "Free",
+      period: "forever",
+      description: "Get started with QraftAI — no credit card needed. Perfect for individuals and small teams evaluating the platform.",
       features: [
-        "5 Pages Website",
-        "Mobile Responsive",
-        "Contact Form",
-        "WhatsApp Integration",
-        "Google Maps Integration",
-        "1 Month Post-Delivery Support",
-        "Free Domain (1 Year)",
-        "Free Hosting (1 Year)",
-        "SEO Basic Setup"
+        "Up to 50 test cases/month",
+        "AI Test Case Generation",
+        "Web App Support",
+        "Live Test Execution",
+        "Basic AI Reports",
+        "Community Support"
       ],
       popular: false,
-      badge: "BEST VALUE"
+      badge: "FREE FOREVER",
+      cta: "Get Started Free"
     },
     {
-      name: "Business Website",
-      price: "₹49,999",
-      period: "one-time",
-      originalPrice: "₹79,999",
-      discount: "38% OFF",
-      description: "Ideal for growing businesses and service providers globally",
+      name: "Pro",
+      price: "Contact Us",
+      period: "per month",
+      description: "Full-power QraftAI for growing teams. CI/CD integration, advanced reporting, and mobile support included.",
       features: [
-        "10 Pages Website",
-        "Admin Dashboard",
-        "Online Booking System",
-        "Payment Gateway",
-        "Google Analytics",
-        "3 Months Post-Delivery Support",
-        "Free Domain (1 Year)",
-        "Free Hosting (1 Year)",
-        "Social Media Integration",
-        "Email Marketing Setup"
+        "Unlimited Test Cases",
+        "AI Test Case Generation",
+        "Full Cross-Browser Support (Chrome, Firefox, Safari, Edge)",
+        "Live Test Execution",
+        "CI/CD Integration (GitHub, Jenkins, GitLab)",
+        "AI-Powered Reports with Fix Suggestions",
+        "Priority Email Support",
+        "Test History & Trend Analysis"
       ],
       popular: true,
-      badge: "MOST POPULAR"
+      badge: "MOST POPULAR",
+      cta: "Get Pro Access"
     },
     {
-      name: "E-commerce Store",
-      price: "₹99,999",
-      period: "one-time",
-      originalPrice: "₹1,49,999",
-      discount: "33% OFF",
-      description: "Complete online store for selling products worldwide",
+      name: "Enterprise",
+      price: "Custom",
+      period: "pricing",
+      description: "For large teams and organizations needing dedicated infrastructure, custom integrations, and SLA-backed support.",
       features: [
-        "Unlimited Products",
-        "Payment Gateway",
-        "Inventory Management",
-        "Order Tracking",
-        "Customer Dashboard",
-        "6 Months Post-Delivery Support",
-        "Free Domain (1 Year)",
-        "Free Hosting (1 Year)",
-        "Mobile App (Basic)",
-        "WhatsApp Order Integration"
+        "Everything in Pro",
+        "Dedicated Cloud Infrastructure",
+        "Custom CI/CD Integrations",
+        "On-Premise Deployment Option",
+        "SSO & Advanced Security",
+        "SLA-Backed Uptime Guarantee",
+        "Dedicated Account Manager",
+        "Custom Onboarding & Training"
       ],
       popular: false,
-      badge: "PREMIUM"
+      badge: "ENTERPRISE",
+      cta: "Talk to Sales"
     }
   ];
 
@@ -86,77 +76,11 @@ const Pricing = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-poppins mb-6">
-            Professional Websites <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">Starting ₹24,999</span>
+            Simple, Transparent <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">Pricing</span>
           </h2>
-          <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto mb-4">
-            Perfect for businesses worldwide - from local shops to global enterprises. Get your professional website with free domain & hosting included.
+          <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto mb-8">
+            Start free. Scale when you're ready. No hidden fees, no lock-in — just reliable AI test automation at a price that makes sense.
           </p>
-          <p className="text-sm text-white/60 max-w-2xl mx-auto mb-8">
-            <strong>Note:</strong> All plans include post-delivery support. For ongoing maintenance, updates, and long-term partnership, we offer dedicated maintenance packages starting from ₹5,000/month.
-          </p>
-          
-          {/* Value Stacking */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 max-w-2xl mx-auto"
-          >
-            <h3 className="text-xl font-bold text-white mb-4">🎁 What You Get (Total Value: ₹45,000)</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-left">
-              <div className="flex items-center space-x-2">
-                <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                <span className="text-white/90">Professional Design (₹15,000)</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                <span className="text-white/90">Mobile Responsive (₹8,000)</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                <span className="text-white/90">SEO Setup (₹5,000)</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                <span className="text-white/90">Free Domain (₹1,200)</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                <span className="text-white/90">Free Hosting (₹2,400)</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                <span className="text-white/90">3 Months Support (₹9,000)</span>
-              </div>
-            </div>
-            <div className="mt-4 pt-4 border-t border-white/10">
-              <div className="flex justify-between items-center">
-                <span className="text-white/70">Total Value:</span>
-                <span className="text-2xl font-bold text-white">₹45,000</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-teal font-semibold">Your Price:</span>
-                <span className="text-2xl font-bold text-teal">₹24,999</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-green-400 font-semibold">You Save:</span>
-                <span className="text-xl font-bold text-green-400">₹20,001</span>
-              </div>
-            </div>
-          </motion.div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -216,18 +140,21 @@ const Pricing = () => {
                   ))}
                 </ul>
 
-                <motion.button
+                <motion.a
+                  href={plan.name === 'Starter' ? 'https://qaforge.swiftscalesoftware.com/' : '#contact'}
+                  target={plan.name === 'Starter' ? '_blank' : '_self'}
+                  rel={plan.name === 'Starter' ? 'noopener noreferrer' : ''}
+                  onClick={plan.name !== 'Starter' ? (e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); } : undefined}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  className={`w-full py-4 rounded-xl font-semibold transition-all duration-300 ${
+                  className={`w-full py-4 rounded-xl font-semibold transition-all duration-300 text-center block ${
                     plan.popular
                       ? 'bg-gradient-to-r from-teal to-purple text-white hover:shadow-lg hover:shadow-teal/25'
                       : 'bg-white/10 text-white border border-white/20 hover:bg-white/20'
                   }`}
                 >
-                  {plan.name === 'Software' ? 'Contact Us' : 'Get Started'}
-                </motion.button>
+                  {plan.cta}
+                </motion.a>
               </div>
             </motion.div>
           ))}
@@ -240,7 +167,7 @@ const Pricing = () => {
           className="text-center mt-12"
         >
           <p className="text-white/80 mb-6">
-            Ready to grow your business online? Let's build something amazing together!
+            Not sure which plan is right for you? Book a free demo and we'll walk you through QraftAI live.
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}
@@ -248,7 +175,7 @@ const Pricing = () => {
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             className="btn-primary"
           >
-            Start Your Project - ₹24,999
+            Book a Free Demo
           </motion.button>
         </motion.div>
       </div>
