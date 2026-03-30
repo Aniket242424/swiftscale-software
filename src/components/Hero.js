@@ -42,10 +42,10 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold font-poppins mb-6 leading-tight">
-            <span className="block">Websites.</span>
-            <span className="block">Apps.</span>
+            <span className="block">Automate Tests.</span>
+            <span className="block">Ship Faster.</span>
             <span className="block bg-gradient-to-r from-white to-teal bg-clip-text text-transparent">
-              Software that Scales.
+              Zero Scripts. Pure AI.
             </span>
           </h1>
         </motion.div>
@@ -61,7 +61,7 @@ const Hero = () => {
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
             </svg>
-            <span className="font-semibold">🚀 AI-Enhanced Professional Software Solutions - Quality Guaranteed</span>
+            <span className="font-semibold">🤖 QraftAI — AI-Powered Test Automation with CI/CD, Live Execution & Smart Reporting</span>
           </div>
         </motion.div>
 
@@ -71,7 +71,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed"
         >
-          We design and build modern websites, cross-platform apps, and custom software using intelligent development processes for enhanced speed, quality, and reliability.
+          QraftAI automatically generates and executes test cases for your web applications using AI — with CI/CD integration, live browser execution, and intelligent reporting. No manual scripting. No maintenance overhead. Just reliable web tests at a fraction of the cost.
         </motion.p>
 
         <motion.div
@@ -80,32 +80,34 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="flex flex-col sm:flex-row gap-6 justify-center items-center"
         >
-          <motion.button
+          <motion.a
+            href="https://qaforge.swiftscalesoftware.com/"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             className="btn-primary"
           >
-            Start Your Project
-          </motion.button>
-          
+            Try QraftAI Free
+          </motion.a>
+
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
             className="btn-secondary"
           >
-            View Portfolio
+            See How It Works
           </motion.button>
-          
-          <motion.a
-            href="/careers"
+
+          <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             className="bg-gradient-to-r from-green-500 to-teal text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-green-500/25"
           >
-            💰 Join Our Team
-          </motion.a>
+            Book a Demo
+          </motion.button>
         </motion.div>
 
         {/* Scroll Indicator */}

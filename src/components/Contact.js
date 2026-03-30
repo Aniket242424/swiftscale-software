@@ -2,193 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    countryCode: '+91',
-    projectType: '',
-    message: ''
-  });
-  
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState('');
-  const [errors, setErrors] = useState({});
-  const [showToast, setShowToast] = useState(false);
+  const [showToast] = useState(false);
 
-  // Toast notification effect
   useEffect(() => {
-    if (showToast) {
-      const timer = setTimeout(() => {
-        setShowToast(false);
-      }, 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [showToast]);
-
-  const showSuccessToast = () => {
-    setShowToast(true);
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-    
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors({
-        ...errors,
-        [name]: ''
-      });
-    }
-  };
-
-  const validateForm = () => {
-    const newErrors = {};
-    
-    console.log('Validating form data:', formData);
-    
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-      console.log('Validation failed: Name is empty');
-    }
-    
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-      console.log('Validation failed: Email is empty');
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
-      console.log('Validation failed: Email format is invalid');
-    }
-    
-    if (!formData.phone.trim()) {
-      newErrors.phone = 'Phone number is required';
-      console.log('Validation failed: Phone is empty');
-    } else {
-      // Remove all non-digits and check if it's a valid phone number
-      const phoneDigits = formData.phone.replace(/\D/g, '');
-      console.log('Phone validation - Country Code:', formData.countryCode, 'Phone:', formData.phone, 'Digits only:', phoneDigits);
-      
-      // Validate based on country code
-      if (formData.countryCode === '+91' && !/^[6-9]\d{9}$/.test(phoneDigits)) {
-        newErrors.phone = 'Please enter a valid 10-digit Indian phone number';
-        console.log('Validation failed: Indian phone format is invalid');
-      } else if (formData.countryCode === '+1' && !/^\d{10}$/.test(phoneDigits)) {
-        newErrors.phone = 'Please enter a valid 10-digit US phone number';
-        console.log('Validation failed: US phone format is invalid');
-      } else if (phoneDigits.length < 7 || phoneDigits.length > 15) {
-        newErrors.phone = 'Please enter a valid phone number';
-        console.log('Validation failed: Phone number length is invalid');
-      }
-    }
-    
-    if (!formData.projectType) {
-      newErrors.projectType = 'Please select a project type';
-      console.log('Validation failed: Project type not selected');
-    }
-    
-    if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
-      console.log('Validation failed: Message is empty');
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Message must be at least 10 characters long';
-      console.log('Validation failed: Message too short');
-    }
-    
-    console.log('Validation errors:', newErrors);
-    setErrors(newErrors);
-    const isValid = Object.keys(newErrors).length === 0;
-    console.log('Form validation result:', isValid);
-    return isValid;
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    console.log('Form submitted!', formData);
-    
-    // Validate form before submission
-    if (!validateForm()) {
-      console.log('Form validation failed');
-      return;
-    }
-    
-    console.log('Form validation passed, starting submission...');
-    setIsSubmitting(true);
-    setSubmitStatus('');
-    setErrors({});
-
-    try {
-      console.log('Attempting to send email via EmailJS...');
-      
-      // EmailJS configuration - using your existing setup
-      const serviceId = 'service_9g3nhzl';
-      const templateId = 'template_qknt74a';
-      const publicKey = 'Wq1KCQz6S9BnCCZOU';
-
-      console.log('EmailJS Config:', { serviceId, templateId, publicKey });
-
-      // Initialize EmailJS
-      emailjs.init(publicKey);
-
-      // Send email using EmailJS with correct template variables
-      const fullPhoneNumber = `${formData.countryCode} ${formData.phone}`;
-      const result = await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          phone: fullPhoneNumber,
-          project_type: formData.projectType,
-          message: formData.message,
-          name: formData.name,  // Added this for the template
-          email: formData.email,  // Added this for reply-to
-        }
-      );
-
-      console.log('Email sent successfully via EmailJS:', result);
-      setSubmitStatus('success');
-      showSuccessToast();
-      
-      // Reset form after successful submission
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        countryCode: '+91',
-        projectType: '',
-        message: ''
-      });
-      
-    } catch (error) {
-      console.error('Error sending email via EmailJS:', error);
-      setSubmitStatus('error');
-    }
-    
-    setIsSubmitting(false);
-    console.log('Form submission completed');
-  };
-
-  const projectTypes = [
-    'Website Development',
-    'Mobile App Development',
-    'Custom Software',
-    'E-commerce Solution',
-    'API Development',
-    'Test Automation Support',
-    'Mobile Automation Support',
-    'Consultation'
-  ];
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <>
@@ -205,7 +33,7 @@ const Contact = () => {
           </svg>
           <div>
             <p className="font-semibold">Success!</p>
-            <p className="text-sm">Your consultation request has been sent!</p>
+            <p className="text-sm">Demo request sent! We'll be in touch within 24 hours.</p>
           </div>
         </motion.div>
       )}
@@ -213,7 +41,7 @@ const Contact = () => {
       <section id="contact" className="section-padding relative overflow-hidden">
       {/* Animated Gradient Background */}
       <div className="absolute inset-0 gradient-bg opacity-90"></div>
-      
+
       {/* Floating Elements */}
       <div className="absolute inset-0">
         {[...Array(15)].map((_, i) => (
@@ -246,227 +74,40 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-poppins mb-6">
-            Let's <span className="bg-gradient-to-r from-white to-teal bg-clip-text text-transparent">Build</span> Something Amazing
+            Book a <span className="bg-gradient-to-r from-white to-teal bg-clip-text text-transparent">Free Demo</span>
           </h2>
-          <p className="text-lg sm:text-xl text-white/90 max-w-3xl mx-auto">
-            Ready to transform your idea into reality? Get in touch and let's discuss your project.
+          <p className="text-lg sm:text-xl text-white/90 max-w-3xl mx-auto mb-4">
+            See QraftAI in action — live. We'll walk you through the product, answer your questions, and help you evaluate if it's the right fit for your team.
           </p>
+          <div className="flex flex-wrap justify-center gap-6 text-sm text-white/70">
+            <span className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-teal" fill="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              No commitment required
+            </span>
+            <span className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-teal" fill="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              30-minute live walkthrough
+            </span>
+            <span className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-teal" fill="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              Response within 24 hours
+            </span>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Contact Form */}
+          {/* Calendly Embed */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.8, delay: 0.2 }}
+            className="rounded-2xl overflow-hidden"
           >
-            <div className="glass-card">
-              <h3 className="text-2xl font-bold font-poppins mb-6">Send us a message</h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-white/90 mb-2">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className={`w-full px-4 py-3 bg-white/10 border rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 ${
-                        errors.name 
-                          ? 'border-red-400 focus:ring-red-400' 
-                          : 'border-white/20 focus:ring-teal'
-                      }`}
-                      placeholder="Your name"
-                    />
-                    {errors.name && (
-                      <p className="mt-1 text-sm text-red-400">{errors.name}</p>
-                    )}
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-white/90 mb-2">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className={`w-full px-4 py-3 bg-white/10 border rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 ${
-                        errors.email 
-                          ? 'border-red-400 focus:ring-red-400' 
-                          : 'border-white/20 focus:ring-teal'
-                      }`}
-                      placeholder="your@email.com"
-                    />
-                    {errors.email && (
-                      <p className="text-red-400 text-sm mt-1">{errors.email}</p>
-                    )}
-                  </div>
-                </div>
-
-                {/* Phone Number - Full width on mobile */}
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-white/90 mb-2">
-                    Phone Number
-                  </label>
-                  <div className="flex">
-                    <select
-                      id="countryCode"
-                      name="countryCode"
-                      value={formData.countryCode || '+91'}
-                      onChange={handleChange}
-                      className={`w-20 sm:w-24 px-2 sm:px-3 py-3 bg-white/10 border rounded-l-xl text-white focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 ${
-                        errors.phone 
-                          ? 'border-red-400 focus:ring-red-400' 
-                          : 'border-white/20 focus:ring-teal'
-                      }`}
-                    >
-                      <option value="+91" className="bg-navy">+91</option>
-                      <option value="+1" className="bg-navy">+1</option>
-                      <option value="+44" className="bg-navy">+44</option>
-                      <option value="+61" className="bg-navy">+61</option>
-                      <option value="+86" className="bg-navy">+86</option>
-                      <option value="+971" className="bg-navy">+971</option>
-                      <option value="+966" className="bg-navy">+966</option>
-                      <option value="+65" className="bg-navy">+65</option>
-                    </select>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className={`flex-1 px-4 py-3 bg-white/10 border rounded-r-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 border-l-0 ${
-                        errors.phone 
-                          ? 'border-red-400 focus:ring-red-400' 
-                          : 'border-white/20 focus:ring-teal'
-                      }`}
-                      placeholder="9876543210"
-                    />
-                  </div>
-                  {errors.phone && (
-                    <p className="mt-1 text-sm text-red-400">{errors.phone}</p>
-                  )}
-                </div>
-
-                {/* Project Type - Full width */}
-                <div>
-                  <label htmlFor="projectType" className="block text-sm font-medium text-white/90 mb-2">
-                    Project Type *
-                  </label>
-                  <select
-                    id="projectType"
-                    name="projectType"
-                    value={formData.projectType}
-                    onChange={handleChange}
-                    required
-                    className={`w-full px-4 py-3 bg-white/10 border rounded-xl text-white focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 ${
-                      errors.projectType 
-                        ? 'border-red-400 focus:ring-red-400' 
-                        : 'border-white/20 focus:ring-teal'
-                    }`}
-                  >
-                    <option value="" className="bg-navy">Select project type</option>
-                    {projectTypes.map((type, index) => (
-                      <option key={index} value={type} className="bg-navy">
-                        {type}
-                      </option>
-                    ))}
-                  </select>
-                  {errors.projectType && (
-                    <p className="mt-1 text-sm text-red-400">{errors.projectType}</p>
-                  )}
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-white/90 mb-2">
-                    Project Details *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={6}
-                    className={`w-full px-4 py-3 bg-white/10 border rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 resize-none ${
-                      errors.message 
-                        ? 'border-red-400 focus:ring-red-400' 
-                        : 'border-white/20 focus:ring-teal'
-                    }`}
-                    placeholder="Tell us about your project, goals, timeline, and any specific requirements..."
-                  />
-                  {errors.message && (
-                    <p className="mt-1 text-sm text-red-400">{errors.message}</p>
-                  )}
-                </div>
-
-                <motion.button
-                  type="submit"
-                  disabled={isSubmitting}
-                  whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
-                  whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
-                  className={`w-full btn-primary ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''}`}
-                  onClick={() => {
-                    console.log('Book consultation button clicked!');
-                  }}
-                >
-                  {isSubmitting ? (
-                    <div className="flex items-center justify-center">
-                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                      Sending...
-                    </div>
-                  ) : (
-                    'Book a Free Consultation'
-                  )}
-                </motion.button>
-                
-                {submitStatus === 'success' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="mt-4 p-4 bg-green-500/20 border border-green-500/30 rounded-xl text-green-400 text-center"
-                  >
-                    ✅ Thank you! Your consultation request has been submitted successfully. We'll get back to you within 24 hours.
-                    <div className="mt-3">
-                      <p className="text-sm text-white/80 mb-2">Or reach us directly:</p>
-                      <a 
-                        href="https://wa.me/918788155105?text=Hi! I'm interested in your web development services."
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors duration-300"
-                      >
-                        <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
-                        </svg>
-                        Chat on WhatsApp
-                      </a>
-                    </div>
-                  </motion.div>
-                )}
-                
-                {submitStatus === 'error' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="mt-4 p-4 bg-red-500/20 border border-red-500/30 rounded-xl text-red-400 text-center"
-                  >
-                    ❌ Sorry, there was an error sending your message. Please try again or contact us directly at swift.scale2409@gmail.com
-                  </motion.div>
-                )}
-              </form>
-            </div>
+            <div
+              className="calendly-inline-widget w-full rounded-2xl overflow-hidden"
+              data-url="https://calendly.com/swift-scale2409/30min?hide_gdpr_banner=1&background_color=0f172a&text_color=ffffff&primary_color=0ea5a4"
+              style={{ minWidth: '320px', height: '700px' }}
+            />
           </motion.div>
 
           {/* Contact Info */}
@@ -479,7 +120,7 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-bold font-poppins mb-6">Get in touch</h3>
               <p className="text-white/90 text-lg leading-relaxed mb-8">
-                We're here to help you bring your vision to life. Whether you have a clear project in mind or just an idea, we'd love to hear from you.
+                Whether you want a live demo of QraftAI, need help getting started, or want to explore Enterprise pricing — our team is ready. Expect a response within 24 hours.
               </p>
             </div>
 
@@ -492,7 +133,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="font-semibold">Email</p>
-                  <p className="text-white/80">swift.scale2409@gmail.com</p>
+                  <p className="text-white/80">soubhik.das@swiftscalesoftware.com</p>
                 </div>
               </div>
 
