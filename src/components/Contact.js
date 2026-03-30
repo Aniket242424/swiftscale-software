@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [showToast] = useState(false);
 
   useEffect(() => {
     const script = document.createElement('script');
@@ -17,192 +17,6 @@ const Contact = () => {
       document.body.removeChild(script);
     };
   }, []);
-  
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    countryCode: '+91',
-    preferredDate: '',
-    preferredTime: '',
-    message: ''
-  });
-  
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState('');
-  const [errors, setErrors] = useState({});
-  const [showToast, setShowToast] = useState(false);
-
-  // Toast notification effect
-  useEffect(() => {
-    if (showToast) {
-      const timer = setTimeout(() => {
-        setShowToast(false);
-      }, 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [showToast]);
-
-  const showSuccessToast = () => {
-    setShowToast(true);
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-    
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors({
-        ...errors,
-        [name]: ''
-      });
-    }
-  };
-
-  const validateForm = () => {
-    const newErrors = {};
-    
-    console.log('Validating form data:', formData);
-    
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-      console.log('Validation failed: Name is empty');
-    }
-    
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-      console.log('Validation failed: Email is empty');
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
-      console.log('Validation failed: Email format is invalid');
-    }
-    
-    if (!formData.phone.trim()) {
-      newErrors.phone = 'Phone number is required';
-      console.log('Validation failed: Phone is empty');
-    } else {
-      // Remove all non-digits and check if it's a valid phone number
-      const phoneDigits = formData.phone.replace(/\D/g, '');
-      console.log('Phone validation - Country Code:', formData.countryCode, 'Phone:', formData.phone, 'Digits only:', phoneDigits);
-      
-      // Validate based on country code
-      if (formData.countryCode === '+91' && !/^[6-9]\d{9}$/.test(phoneDigits)) {
-        newErrors.phone = 'Please enter a valid 10-digit Indian phone number';
-        console.log('Validation failed: Indian phone format is invalid');
-      } else if (formData.countryCode === '+1' && !/^\d{10}$/.test(phoneDigits)) {
-        newErrors.phone = 'Please enter a valid 10-digit US phone number';
-        console.log('Validation failed: US phone format is invalid');
-      } else if (phoneDigits.length < 7 || phoneDigits.length > 15) {
-        newErrors.phone = 'Please enter a valid phone number';
-        console.log('Validation failed: Phone number length is invalid');
-      }
-    }
-    
-    if (!formData.preferredDate) {
-      newErrors.preferredDate = 'Please select a preferred date';
-    }
-
-    if (!formData.preferredTime) {
-      newErrors.preferredTime = 'Please select a preferred time';
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
-      console.log('Validation failed: Message is empty');
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Message must be at least 10 characters long';
-      console.log('Validation failed: Message too short');
-    }
-    
-    console.log('Validation errors:', newErrors);
-    setErrors(newErrors);
-    const isValid = Object.keys(newErrors).length === 0;
-    console.log('Form validation result:', isValid);
-    return isValid;
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    console.log('Form submitted!', formData);
-    
-    // Validate form before submission
-    if (!validateForm()) {
-      console.log('Form validation failed');
-      return;
-    }
-    
-    console.log('Form validation passed, starting submission...');
-    setIsSubmitting(true);
-    setSubmitStatus('');
-    setErrors({});
-
-    try {
-      console.log('Attempting to send email via EmailJS...');
-      
-      // EmailJS configuration - using your existing setup
-      const serviceId = 'service_9g3nhzl';
-      const templateId = 'template_qknt74a';
-      const publicKey = 'Wq1KCQz6S9BnCCZOU';
-
-      console.log('EmailJS Config:', { serviceId, templateId, publicKey });
-
-      // Initialize EmailJS
-      emailjs.init(publicKey);
-
-      // Send email using EmailJS with correct template variables
-      const fullPhoneNumber = `${formData.countryCode} ${formData.phone}`;
-      const result = await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          phone: fullPhoneNumber,
-          message: formData.message,
-          preferred_date: formData.preferredDate,
-          preferred_time: formData.preferredTime,
-          name: formData.name,
-          email: formData.email,
-        }
-      );
-
-      console.log('Email sent successfully via EmailJS:', result);
-      setSubmitStatus('success');
-      showSuccessToast();
-      
-      // Reset form after successful submission
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        countryCode: '+91',
-        preferredDate: '',
-        preferredTime: '',
-        message: ''
-      });
-      
-    } catch (error) {
-      console.error('Error sending email via EmailJS:', error);
-      setSubmitStatus('error');
-    }
-    
-    setIsSubmitting(false);
-    console.log('Form submission completed');
-  };
-
-  const projectTypes = [
-    'Book a Demo',
-    'QraftAI Pro Access',
-    'Enterprise Pricing',
-    'CI/CD Integration Help',
-    'Cross-Browser Testing Help',
-    'General Inquiry'
-  ];
 
   return (
     <>
@@ -227,7 +41,7 @@ const Contact = () => {
       <section id="contact" className="section-padding relative overflow-hidden">
       {/* Animated Gradient Background */}
       <div className="absolute inset-0 gradient-bg opacity-90"></div>
-      
+
       {/* Floating Elements */}
       <div className="absolute inset-0">
         {[...Array(15)].map((_, i) => (

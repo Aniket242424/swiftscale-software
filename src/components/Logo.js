@@ -2,18 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const Logo = ({ className = "", size = "default" }) => {
-  const sizeClasses = {
-    small: "w-8 h-8",
-    default: "w-10 h-10", 
-    large: "w-12 h-12"
-  };
-
-  const textSizes = {
-    small: "text-lg",
-    default: "text-xl",
-    large: "text-2xl"
-  };
-
   return (
     <motion.div
       className={`flex items-center gap-2 ${className}`}
