@@ -78,7 +78,7 @@ const Footer = () => {
                   <Logo size="default" />
                 </div>
                 <p className="text-white/70 leading-relaxed mb-6">
-                  An AI company building intelligent products — from qraftAI (automated test cases with AI) to smart web, mobile, and custom software solutions.
+                  An AI company building intelligent products — from QraftAI (automated test cases with AI) to smart web, mobile, and custom software solutions.
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3 text-white/80">
@@ -91,9 +91,9 @@ const Footer = () => {
                     <svg className="w-5 h-5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
-                    <span>+91 8788155105</span>
+                    <span>+91 7588285664</span>
                     <motion.a
-                      href="https://wa.me/918788155105?text=Hi%20SwiftScale%20Software!%20I%20would%20like%20to%20discuss%20a%20project."
+                      href="https://wa.me/917588285664?text=Hi%20SwiftScale%20Software!%20I%20would%20like%20to%20discuss%20a%20project."
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.1 }}

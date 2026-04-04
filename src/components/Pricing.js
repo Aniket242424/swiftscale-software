@@ -141,7 +141,7 @@ const Pricing = () => {
                 </ul>
 
                 <motion.a
-                  href={plan.name === 'Starter' ? 'https://qaforge.swiftscalesoftware.com/' : '#contact'}
+                  href={plan.name === 'Starter' ? 'https://qa.swiftscalesoftware.com/' : '#contact'}
                   target={plan.name === 'Starter' ? '_blank' : '_self'}
                   rel={plan.name === 'Starter' ? 'noopener noreferrer' : ''}
                   onClick={plan.name !== 'Starter' ? (e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); } : undefined}

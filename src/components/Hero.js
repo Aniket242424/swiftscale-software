@@ -81,7 +81,7 @@ const Hero = () => {
           className="flex flex-col sm:flex-row gap-6 justify-center items-center"
         >
           <motion.a
-            href="https://qaforge.swiftscalesoftware.com/"
+            href="https://qa.swiftscalesoftware.com/"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}

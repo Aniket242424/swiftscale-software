@@ -123,7 +123,7 @@ const Portfolio = () => {
           className="text-center mt-12"
         >
           <motion.a
-            href="https://qaforge.swiftscalesoftware.com/"
+            href="https://qa.swiftscalesoftware.com/"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
