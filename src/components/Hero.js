@@ -71,7 +71,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed"
         >
-          QraftAI automatically generates and executes test cases for your web applications using AI — with CI/CD integration, live browser execution, and intelligent reporting. No manual scripting. No maintenance overhead. Just reliable web tests at a fraction of the cost.
+          QraftAI gets smarter, faster, and cheaper the more you use it. Every test run becomes a competitive asset — permanently.
         </motion.p>
 
         <motion.div
