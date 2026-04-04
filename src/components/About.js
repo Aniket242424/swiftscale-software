@@ -58,7 +58,7 @@ const About = () => {
               </p>
 
               <p>
-                We are an AI product company. Our flagship product, <a href="https://qaforge.swiftscalesoftware.com/" target="_blank" rel="noopener noreferrer" className="text-teal font-semibold hover:underline">QraftAI</a>, is an AI-powered web test automation platform that automatically generates test cases, executes them live across all major browsers, integrates seamlessly into CI/CD pipelines, and delivers intelligent reports — all without writing a single line of test script.
+                We are an AI product company. Our flagship product, <a href="https://qa.swiftscalesoftware.com/" target="_blank" rel="noopener noreferrer" className="text-teal font-semibold hover:underline">QraftAI</a>, is an AI-powered web test automation platform that automatically generates test cases, executes them live across all major browsers, integrates seamlessly into CI/CD pipelines, and delivers intelligent reports — all without writing a single line of test script.
               </p>
 
               <p>

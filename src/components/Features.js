@@ -57,7 +57,7 @@ const Features = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-poppins mb-6">
-            Why Choose <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">SwiftScale</span>
+            Why Choose <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">QraftAI</span>
           </h2>
           <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto">
             We are an AI company. We build intelligent products and AI-powered solutions that give businesses a competitive edge in the modern world.
