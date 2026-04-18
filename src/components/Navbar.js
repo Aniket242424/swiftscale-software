@@ -1,10 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Logo from './Logo';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+    if (location.pathname !== '/') {
+      navigate('/' + href);
+    } else {
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,15 +62,7 @@ const Navbar = () => {
               <motion.a
                 key={index}
                 href={item.href}
-                onClick={item.isExternal ? undefined : (e) => {
-                  e.preventDefault();
-                  const targetElement = document.querySelector(item.href);
-                  if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                  } else {
-                    console.log('Element not found:', item.href);
-                  }
-                }}
+                onClick={(e) => handleNavClick(e, item.href)}
                 whileHover={{ y: -2 }}
                 className="text-white/80 hover:text-teal transition-colors duration-300 font-medium"
               >
@@ -70,7 +76,7 @@ const Navbar = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={(e) => handleNavClick(e, '#contact')}
               className="btn-primary text-sm px-6 py-2"
             >
               Try QraftAI Free
@@ -111,44 +117,7 @@ const Navbar = () => {
               <motion.a
                 key={index}
                 href={item.href}
-                onClick={item.isExternal ? () => {
-                  console.log('Navigating to external page:', item.href);
-                  setIsMobileMenuOpen(false);
-                  // Use setTimeout to ensure menu closes before navigation
-                  setTimeout(() => {
-                    window.location.href = item.href;
-                  }, 100);
-                } : (e) => {
-                  e.preventDefault();
-                  console.log('Attempting to scroll to:', item.href);
-                  setIsMobileMenuOpen(false);
-                  
-                  // Use setTimeout to ensure menu closes before scrolling
-                  setTimeout(() => {
-                    const targetElement = document.querySelector(item.href);
-                    if (targetElement) {
-                      console.log('Element found, scrolling to:', item.href);
-                      targetElement.scrollIntoView({ 
-                        behavior: 'smooth',
-                        block: 'start'
-                      });
-                    } else {
-                      console.log('Element not found:', item.href);
-                      // Fallback: try to scroll to the element by ID
-                      const elementId = item.href.replace('#', '');
-                      const elementById = document.getElementById(elementId);
-                      if (elementById) {
-                        console.log('Found element by ID, scrolling to:', elementId);
-                        elementById.scrollIntoView({ 
-                          behavior: 'smooth',
-                          block: 'start'
-                        });
-                      } else {
-                        console.log('Element not found by ID either:', elementId);
-                      }
-                    }
-                  }, 200);
-                }}
+                onClick={(e) => handleNavClick(e, item.href)}
                 whileHover={{ x: 10 }}
                 className="block text-white/80 hover:text-teal transition-colors duration-300 font-medium px-4"
               >

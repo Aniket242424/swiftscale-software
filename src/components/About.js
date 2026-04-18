@@ -34,6 +34,15 @@ const About = () => {
       ),
       title: "Global Ambition",
       description: "Founded in Pune, built for the world. We are actively seeking investors and partners to scale QraftAI into a globally adopted web testing standard."
+    },
+    {
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+      ),
+      title: "End-to-End Software Development",
+      description: "From custom web and mobile apps to CRM tools and full-cycle product development — we handle everything from architecture to deployment so you can focus on your business."
     }
   ];
 
@@ -59,6 +68,10 @@ const About = () => {
 
               <p>
                 We are an AI product company. Our flagship product, <a href="https://qa.swiftscalesoftware.com/" target="_blank" rel="noopener noreferrer" className="text-teal font-semibold hover:underline">QraftAI</a>, is an AI-powered web test automation platform that automatically generates test cases, executes them live across all major browsers, integrates seamlessly into CI/CD pipelines, and delivers intelligent reports — all without writing a single line of test script.
+              </p>
+
+              <p>
+                Beyond testing, SwiftScale offers end-to-end software development services — custom web and mobile applications, CRM tools tailored to your business workflows, and full-cycle product development from idea to deployment. Whether you need a product built from scratch or a dedicated development team, we deliver.
               </p>
 
               <p>

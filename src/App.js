@@ -13,6 +13,19 @@ import Footer from './components/Footer';
 import WhatsAppWidget from './components/WhatsAppWidget';
 import StudentProjects from './components/StudentProjects';
 import CareerAffiliate from './components/CareerAffiliate';
+import Navbar from './components/Navbar';
+
+// About page — standalone route
+const AboutPage = () => (
+  <div className="App">
+    <div className="relative bg-navy">
+      <Navbar />
+    </div>
+    <About />
+    <Footer />
+    <WhatsAppWidget />
+  </div>
+);
 
 // Main website component
 const MainWebsite = () => (
@@ -36,6 +49,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<MainWebsite />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/student-projects" element={<StudentProjects />} />
         <Route path="/academic-solutions" element={<StudentProjects />} />
         <Route path="/final-year-projects" element={<StudentProjects />} />
