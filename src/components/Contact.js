@@ -105,7 +105,7 @@ const Contact = () => {
           >
             <div
               className="calendly-inline-widget w-full rounded-2xl overflow-hidden"
-              data-url="https://calendly.com/swift-scale2409/30min?hide_gdpr_banner=1&background_color=0f172a&text_color=ffffff&primary_color=0ea5a4"
+              data-url="https://calendly.com/soubhik-das-swiftscalesoftware/new-meeting?hide_gdpr_banner=1&background_color=0f172a&text_color=ffffff&primary_color=0ea5a4"
               style={{ minWidth: '320px', height: '700px' }}
             />
           </motion.div>
