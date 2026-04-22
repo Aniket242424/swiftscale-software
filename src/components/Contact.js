@@ -123,7 +123,7 @@ const Contact = () => {
             </div>
 
             <motion.a
-              href="https://calendly.com/soubhik-das-swiftscalesoftware/new-meeting"
+              href="https://calendly.com/soubhik-das-swiftscalesoftware/qraftai-demo"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.03 }}
