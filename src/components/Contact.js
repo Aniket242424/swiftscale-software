@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
@@ -8,15 +8,6 @@ const Contact = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [showToast] = useState(false);
 
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
 
   return (
     <>
@@ -96,18 +87,53 @@ const Contact = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Calendly Embed */}
+          {/* Book a Demo Card */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="rounded-2xl overflow-hidden"
+            className="rounded-2xl bg-white/5 border border-white/10 p-10 flex flex-col justify-center space-y-8"
           >
-            <div
-              className="calendly-inline-widget w-full rounded-2xl overflow-hidden"
-              data-url="https://calendly.com/soubhik-das-swiftscalesoftware/new-meeting?hide_gdpr_banner=1&background_color=0f172a&text_color=ffffff&primary_color=0ea5a4"
-              style={{ minWidth: '320px', height: '700px' }}
-            />
+            <div>
+              <div className="w-16 h-16 bg-teal/20 rounded-2xl flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold font-poppins mb-3">Schedule a 30-min Demo</h3>
+              <p className="text-white/70 leading-relaxed">
+                Pick a time that works for you. We'll walk you through QraftAI live — no slides, just a real product demo tailored to your team's needs.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              {[
+                'Live walkthrough of QraftAI',
+                'See AI test generation in action',
+                'CI/CD integration demo',
+                'Pricing & onboarding Q&A',
+              ].map((item, i) => (
+                <div key={i} className="flex items-center space-x-3 text-white/80">
+                  <svg className="w-5 h-5 text-teal flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <motion.a
+              href="https://calendly.com/soubhik-das-swiftscalesoftware/new-meeting"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              className="block w-full text-center bg-gradient-to-r from-teal to-purple text-white font-semibold text-lg py-4 px-8 rounded-xl hover:shadow-lg hover:shadow-teal/25 transition-all duration-300"
+            >
+              Book Your Free Demo →
+            </motion.a>
+
+            <p className="text-white/50 text-sm text-center">No credit card required · Cancel anytime</p>
           </motion.div>
 
           {/* Contact Info */}
