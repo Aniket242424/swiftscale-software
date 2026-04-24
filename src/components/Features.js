@@ -43,6 +43,15 @@ const Features = () => {
       ),
       title: "Scalable Products",
       description: "From MVP to enterprise scale — our cloud-native AI products are architected to grow with your business, handling millions of users seamlessly."
+    },
+    {
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+      ),
+      title: "Jira & Test Tool Integration",
+      description: "Connect Jira or any test management tool — QraftAI pulls your tickets, generates test cases, and runs them live on our platform. No copy-paste, no manual setup."
     }
   ];
 
@@ -64,7 +73,7 @@ const Features = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={index}
