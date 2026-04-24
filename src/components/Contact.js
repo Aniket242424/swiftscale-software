@@ -213,7 +213,7 @@ const Contact = () => {
                   <motion.a
                     key={index}
                     whileHover={{ scale: 1.1 }}
-                    href={social.name === 'LinkedIn' ? 'https://www.linkedin.com/in/soubhikdas-thedeveloper/' : '#'}
+                    href={social.name === 'LinkedIn' ? 'https://www.linkedin.com/company/115798063/' : '#'}
                     target={social.name === 'LinkedIn' ? '_blank' : '_self'}
                     rel={social.name === 'LinkedIn' ? 'noopener noreferrer' : ''}
                     className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-white/80 hover:bg-teal/20 hover:text-teal transition-all duration-300"
