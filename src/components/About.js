@@ -33,7 +33,7 @@ const About = () => {
         </svg>
       ),
       title: "Global Ambition",
-      description: "Founded in Pune, built for the world. We are actively seeking investors and partners to scale QraftAI into a globally adopted web testing standard."
+      description: "Founded in Pune, built for the world. Our mission is to make QraftAI the globally adopted standard for AI-powered web testing — one team at a time."
     },
     {
       icon: (
