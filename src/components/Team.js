@@ -128,36 +128,6 @@ const Team = () => {
           ))}
         </div>
 
-        {/* Team Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-16 bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-8"
-        >
-          <h3 className="text-2xl font-bold font-poppins text-white text-center mb-8">
-            Our Team's Combined Expertise
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-teal mb-2">30+</div>
-              <div className="text-white/80">Years Combined Experience</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-teal mb-2">75+</div>
-              <div className="text-white/80">Technologies Mastered</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-teal mb-2">150+</div>
-              <div className="text-white/80">Projects Delivered</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-teal mb-2">5</div>
-              <div className="text-white/80">Team Members</div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
