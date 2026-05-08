@@ -10,45 +10,39 @@ const Portfolio = () => {
   const steps = [
     {
       step: "01",
-      title: "Connect Your Web App",
-      description: "Link QraftAI to your web application — no SDK installation, no code changes. Just provide your app URL and you're ready to go in minutes.",
-      tags: ["Web Apps", "Any Framework", "Zero Setup", "Instant Start"],
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      title: "Hire Your Agent",
+      description: "Sign up and we assign a dedicated AI agent to your product. Like a new SDET joining your team — minus the offer letter.",
+      tags: ["Sign Up", "Dedicated Agent", "Day One", "No Setup"]
     },
     {
       step: "02",
-      title: "AI Generates Test Cases",
-      description: "QraftAI's AI engine explores your application, understands its flows, and automatically generates a comprehensive suite of test cases — covering edge cases you'd never think to write.",
-      tags: ["AI-Powered", "Auto Discovery", "Full Coverage", "Edge Cases"],
-      image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      title: "It Learns Your App",
+      description: "Your agent reads your application end-to-end. UI, flows, edge cases, business logic — onboarded in hours, not weeks.",
+      tags: ["Auto Discovery", "Business Logic", "Full Context", "Hours Not Weeks"]
     },
     {
       step: "03",
-      title: "Live Test Execution",
-      description: "Watch your tests execute in real time across real browsers — Chrome, Firefox, Edge, and Safari. See every click, every assertion, every result — live as it happens.",
-      tags: ["Chrome", "Firefox", "Safari", "Edge", "Live View"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      title: "It Connects to Your Tools",
+      description: "Plug in Jira, GitHub, GitLab, or any test management tool. Your agent pulls the context it needs to write the right tests.",
+      tags: ["Jira", "GitHub", "GitLab", "Test Management"]
     },
     {
       step: "04",
-      title: "CI/CD Pipeline Integration",
-      description: "Plug QraftAI into GitHub Actions, Jenkins, GitLab CI, or any CI/CD tool. Tests run automatically on every commit or pull request — keeping your pipeline always green.",
-      tags: ["GitHub Actions", "Jenkins", "GitLab CI", "Auto Trigger"],
-      image: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      title: "It Writes Your Test Cases",
+      description: "For every change, your agent generates the test cases your team would write — covering edge cases you'd never think of.",
+      tags: ["AI-Generated", "Edge Cases", "Full Coverage", "Always Current"]
     },
     {
       step: "05",
-      title: "AI-Powered Reports",
-      description: "Get intelligent reports after every run — not just pass/fail counts, but AI-generated insights on what failed, why it failed, and what to fix. Actionable, not overwhelming.",
-      tags: ["Smart Reports", "Root Cause", "Fix Suggestions", "Trends"],
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      title: "It Runs Them Live",
+      description: "Tests execute across Chrome, Firefox, Safari, and Edge. Real browsers. Real-time results. On every PR.",
+      tags: ["Chrome", "Firefox", "Safari", "Edge", "Live View"]
     },
     {
       step: "06",
-      title: "Ship with Confidence",
-      description: "Every release is backed by automated AI-tested coverage. Catch regressions before your users do, ship faster, and build a product your customers can trust.",
-      tags: ["Regression Free", "Fast Release", "Quality Assured", "User Trust"],
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      title: "It Never Logs Off",
+      description: "Failures get root-cause analysis. Coverage compounds with every release. Your agent gets sharper the longer it works for you.",
+      tags: ["Root Cause", "Smart Reports", "Compounding Coverage", "24/7"]
     }
   ];
 
@@ -63,10 +57,10 @@ const Portfolio = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-poppins mb-6">
-            How <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">QraftAI</span> Works
+            How Your <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">AI Agent</span> Works
           </h2>
           <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto">
-            From zero to fully automated testing in minutes. No scripts. No setup headaches. Just AI doing the heavy lifting.
+            From sign-up to shipping — your QA team has a new teammate.
           </p>
         </motion.div>
 
@@ -80,36 +74,27 @@ const Portfolio = () => {
               whileHover={{ y: -10 }}
               className="group h-full"
             >
-              <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300 hover:shadow-2xl hover:shadow-teal/25 h-full flex flex-col">
-                <div className="relative overflow-hidden h-48">
-                  <img
-                    src={step.image}
-                    alt={step.title}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/90 to-transparent" />
-                  <div className="absolute bottom-4 left-6">
-                    <span className="text-5xl font-bold text-white/20 font-poppins">{step.step}</span>
-                  </div>
-                </div>
-
-                <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl sm:text-2xl font-semibold font-poppins mb-3">
+              <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 hover:shadow-2xl hover:shadow-teal/25 h-full flex flex-col">
+                <div className="flex items-baseline gap-4 mb-4">
+                  <span className="text-5xl font-bold font-poppins bg-gradient-to-br from-teal to-purple bg-clip-text text-transparent leading-none">
+                    {step.step}
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-semibold font-poppins">
                     {step.title}
                   </h3>
-                  <p className="text-white/80 mb-4 leading-relaxed flex-grow">
-                    {step.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {step.tags.map((tag, tagIndex) => (
-                      <span
-                        key={tagIndex}
-                        className="px-3 py-1 bg-teal/20 text-teal text-sm rounded-full border border-teal/30"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                </div>
+                <p className="text-white/80 mb-6 leading-relaxed flex-grow">
+                  {step.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {step.tags.map((tag, tagIndex) => (
+                    <span
+                      key={tagIndex}
+                      className="px-3 py-1 bg-teal/20 text-teal text-sm rounded-full border border-teal/30"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -130,7 +115,7 @@ const Portfolio = () => {
             whileTap={{ scale: 0.95 }}
             className="btn-primary"
           >
-            Start Using QraftAI Free
+            Hire Your Agent — Free
           </motion.a>
         </motion.div>
       </div>

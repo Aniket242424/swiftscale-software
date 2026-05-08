@@ -14,8 +14,8 @@ const About = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
         </svg>
       ),
-      title: "AI-First Product Company",
-      description: "We don't just use AI as a feature — we build products where AI is the core engine. QraftAI is proof of that philosophy in action."
+      title: "Agentic, Not Just AI",
+      description: "We don't bolt AI onto old workflows. QraftAI is an agent — assigned to your product, learning continuously, working alongside your team. That's a different category from automation tools."
     },
     {
       icon: (
@@ -67,7 +67,7 @@ const About = () => {
               </p>
 
               <p>
-                We are an AI product company. Our flagship product, <a href="https://qa.swiftscalesoftware.com/" target="_blank" rel="noopener noreferrer" className="text-teal font-semibold hover:underline">QraftAI</a>, is an AI-powered web test automation platform that automatically generates test cases, executes them live across all major browsers, integrates seamlessly into CI/CD pipelines, and delivers intelligent reports — all without writing a single line of test script.
+                We are an AI product company. Our flagship product, <a href="https://qa.swiftscalesoftware.com/" target="_blank" rel="noopener noreferrer" className="text-teal font-semibold hover:underline">QraftAI</a>, isn't a testing tool — it's an AI agent. When a team onboards, we assign a dedicated agent to their product. It learns the application end-to-end, generates high-quality test cases continuously, executes them live across every major browser, and plugs straight into CI/CD pipelines — without scripts, without manual QA cycles, without ever going on leave.
               </p>
 
               <p>
@@ -75,7 +75,7 @@ const About = () => {
               </p>
 
               <p>
-                Led by a team of engineers, cloud specialists, and product strategists with backgrounds at companies like Amazon, SwiftScale is building the next generation of developer tools — starting with QraftAI.
+                QraftAI is led by Aniket, an ex-Amazon SDET with 8+ years of experience, and Omkar — who together set out to build the tool Aniket always wished existed, backed by a team of engineers, cloud specialists, and product strategists.
               </p>
             </div>
 

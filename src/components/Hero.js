@@ -42,10 +42,10 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold font-poppins mb-6 leading-tight">
-            <span className="block">Automate Tests.</span>
-            <span className="block">Ship Faster.</span>
+            <span className="block">Stop Writing Tests.</span>
+            <span className="block">Hire an AI Agent.</span>
             <span className="block bg-gradient-to-r from-white to-teal bg-clip-text text-transparent">
-              Zero Scripts. Pure AI.
+              Ship 10x Faster.
             </span>
           </h1>
         </motion.div>
@@ -57,11 +57,8 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mb-8"
         >
-          <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-full inline-flex items-center space-x-2 shadow-lg animate-pulse">
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
-            <span className="font-semibold">🤖 QraftAI — AI-Powered Test Automation with CI/CD, Live Execution & Smart Reporting</span>
+          <div className="bg-gradient-to-r from-teal/90 to-purple/90 text-white px-6 py-3 rounded-full inline-flex items-center space-x-2 shadow-lg">
+            <span className="font-semibold">🤖 Your AI QA engineer — onboarded in minutes, on the job forever</span>
           </div>
         </motion.div>
 
@@ -71,14 +68,14 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed"
         >
-          QraftAI gets smarter, faster, and cheaper the more you use it. Every test run becomes a competitive asset — permanently.
+          QraftAI is the AI agent your QA team didn't know it needed. It learns your product, writes your test cases, and runs them live — on every PR, in every browser. Forever.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <motion.a
             href="https://qa.swiftscalesoftware.com/"
@@ -94,17 +91,8 @@ const Hero = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
-            className="btn-secondary"
-          >
-            See How It Works
-          </motion.button>
-
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-gradient-to-r from-green-500 to-teal text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-green-500/25"
+            className="btn-secondary"
           >
             Book a Demo
           </motion.button>

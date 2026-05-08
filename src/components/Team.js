@@ -4,16 +4,16 @@ import { motion } from 'framer-motion';
 const Team = () => {
   const teamMembers = [
     {
-      name: "Omkar Chougale",
+      name: "Omkar",
       role: "Chief Executive Officer",
       description: "Visionary leader steering SwiftScale's growth and strategic direction. Drives company vision, builds key partnerships, and ensures every client engagement delivers measurable business impact.",
       initials: "OC",
       expertise: ["Business Strategy", "Leadership", "Partnerships", "Vision & Growth"]
     },
     {
-      name: "Aniket Mahangade",
+      name: "Aniket",
       role: "Chief Technology Officer",
-      description: "Ex-Amazon engineer with 8+ years of experience architecting scalable systems. Leads all technical decisions, drives AI-enhanced development processes, and ensures delivery of enterprise-grade software.",
+      description: "Ex-Amazon SDET with 8+ years of experience — built QraftAI because he got tired of writing tests by hand. Leads all technical decisions and drives AI-enhanced development across the company.",
       initials: "AM",
       expertise: ["Full-Stack Development", "Enterprise Architecture", "AI-Enhanced Dev", "System Design"]
     },
@@ -26,7 +26,7 @@ const Team = () => {
       expertise: ["Product Pitching", "Investor Relations", "Business Development", "Brand Storytelling"]
     },
     {
-      name: "Kunal Anarse",
+      name: "Kunal",
       role: "Cloud Infrastructure Expert",
       description: "Owns SwiftScale's cloud strategy end-to-end. Designs and manages scalable, secure cloud environments that power our products with high availability, performance, and cost efficiency.",
       initials: "KA",

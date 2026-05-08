@@ -78,7 +78,7 @@ const Footer = () => {
                   <Logo size="default" />
                 </div>
                 <p className="text-white/70 leading-relaxed mb-6">
-                  An AI company building intelligent products — from QraftAI (automated test cases with AI) to smart web, mobile, and custom software solutions.
+                  Building agentic AI products. QraftAI assigns a dedicated AI agent to your product — it learns your app and generates quality test cases, continuously.
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3 text-white/80">
