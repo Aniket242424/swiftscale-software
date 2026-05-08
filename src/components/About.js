@@ -71,7 +71,7 @@ const About = () => {
               </p>
 
               <p>
-                Beyond testing, SwiftScale offers end-to-end software development services — custom web and mobile applications, CRM tools tailored to your business workflows, and full-cycle product development from idea to deployment. Whether you need a product built from scratch or a dedicated development team, we deliver.
+                Beyond QraftAI, we take on select end-to-end software builds — custom web and mobile apps, CRM tools, and full-cycle product development. Engage us as a dedicated team for builds from scratch, or for ongoing maintenance and new feature development.
               </p>
 
               <p>
