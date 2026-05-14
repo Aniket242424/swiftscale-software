@@ -11,12 +11,20 @@ const Navbar = () => {
 
   const handleNavClick = (e, href) => {
     e.preventDefault();
+    const wasMenuOpen = isMobileMenuOpen;
     setIsMobileMenuOpen(false);
     if (location.pathname !== '/') {
       navigate('/' + href);
     } else {
-      const el = document.querySelector(href);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
+      const doScroll = () => {
+        const el = document.querySelector(href);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      };
+      if (wasMenuOpen) {
+        setTimeout(doScroll, 320);
+      } else {
+        doScroll();
+      }
     }
   };
 
@@ -128,10 +136,7 @@ const Navbar = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => {
-                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                  setIsMobileMenuOpen(false);
-                }}
+                onClick={(e) => handleNavClick(e, '#contact')}
                 className="btn-primary w-full text-sm px-6 py-2"
               >
                 Get Started
