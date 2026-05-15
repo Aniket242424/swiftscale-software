@@ -14,6 +14,7 @@ import WhatsAppWidget from './components/WhatsAppWidget';
 import StudentProjects from './components/StudentProjects';
 import CareerAffiliate from './components/CareerAffiliate';
 import Navbar from './components/Navbar';
+import { PrivacyPolicy, TermsOfService, CookiePolicy, NotFound } from './components/Legal';
 
 // About page — standalone route
 const AboutPage = () => (
@@ -56,6 +57,10 @@ function App() {
         <Route path="/careers" element={<CareerAffiliate />} />
         <Route path="/affiliate" element={<CareerAffiliate />} />
         <Route path="/join-us" element={<CareerAffiliate />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/cookie-policy" element={<CookiePolicy />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );

@@ -39,7 +39,7 @@ const Navbar = () => {
 
   const navItems = [
     { name: 'Home', href: '#home' },
-    { name: 'Features', href: '#services' },
+    { name: 'Capabilities', href: '#services' },
     { name: 'Why QraftAI', href: '#features' },
     { name: 'How It Works', href: '#portfolio' },
     { name: 'Pricing', href: '#pricing' },
@@ -94,10 +94,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <motion.button
             whileTap={{ scale: 0.95 }}
-            onClick={() => {
-              console.log('Mobile menu button clicked, current state:', isMobileMenuOpen);
-              setIsMobileMenuOpen(!isMobileMenuOpen);
-            }}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={`lg:hidden p-2 text-white z-50 relative ${isMobileMenuOpen ? 'bg-white/10 rounded-lg' : ''}`}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -38,12 +38,10 @@ const StudentProjects = () => {
       const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID_STUDENT || 'template_u88hszs';
       const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'Wq1KCQz6S9BnCCZOU';
 
-      console.log('EmailJS Config:', { serviceId, templateId, publicKey });
-
       // Initialize EmailJS
       emailjs.init(publicKey);
       
-      const result = await emailjs.send(serviceId, templateId, {
+      await emailjs.send(serviceId, templateId, {
         from_name: formData.name,
         from_email: formData.email,
         phone: formData.phone,
@@ -58,8 +56,6 @@ const StudentProjects = () => {
         to_name: 'SwiftScale Student Team'
       });
 
-      console.log('Email sent successfully:', result);
-      
       setSubmitStatus('success');
       setFormData({
         name: '', email: '', phone: '', college: '', course: '', year: '',

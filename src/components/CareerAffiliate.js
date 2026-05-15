@@ -47,12 +47,10 @@ const CareerAffiliate = () => {
         [e.target.name]: e.target.value
       });
     }
-    console.log('Form data updated:', { [e.target.name]: e.target.value || e.target.files[0] });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted with data:', formData);
     setIsSubmitting(true);
     setSubmitStatus('');
 
@@ -88,23 +86,16 @@ Please review the application and schedule the initial screening interview.
 Best regards,
 ${formData.name}`;
 
-      console.log('Email subject:', emailSubject);
-      console.log('Email body:', emailBody);
-
       // Store email content for display
       setEmailContent(`Subject: ${emailSubject}\n\n${emailBody}`);
 
       // Create mailto link
       const mailtoLink = `mailto:swift.scale2409@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-      
-      console.log('Mailto link:', mailtoLink);
-      
+
       // Try to open email client
       try {
         window.open(mailtoLink, '_blank');
-        console.log('Email client opened successfully');
       } catch (error) {
-        console.error('Error opening email client:', error);
         // Fallback: copy to clipboard
         navigator.clipboard.writeText(`Subject: ${emailSubject}\n\n${emailBody}`);
         alert('Email client could not be opened. Application details have been copied to your clipboard. Please paste them into an email and send to swift.scale2409@gmail.com');
@@ -120,7 +111,6 @@ ${formData.name}`;
       });
       
     } catch (error) {
-      console.error('Error in form submission:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);

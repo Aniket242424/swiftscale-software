@@ -76,10 +76,10 @@ const Pricing = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-poppins mb-6">
-            Simple, Transparent <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">Pricing</span>
+            Pricing That <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">Scales With You</span>
           </h2>
           <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto mb-8">
-            Start free. Scale when you're ready. No hidden fees, no lock-in — just reliable AI test automation at a price that makes sense.
+            Start free. Talk to us when you're ready to grow. No lock-in — pay only for what your agent does for you.
           </p>
         </motion.div>
 
