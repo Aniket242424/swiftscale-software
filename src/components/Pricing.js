@@ -1,156 +1,169 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+
+const QRAFTAI_APP_URL = 'https://qa.swiftscalesoftware.com/';
+
+const plans = [
+  {
+    name: 'Starter',
+    price: 49,
+    steps: '200 steps / month',
+    description: 'For individuals and small teams running QraftAI on a single product.',
+    features: [
+      '200 test steps / month',
+      'AI test case generation',
+      'Chrome + Firefox execution',
+      'Standard AI reports',
+      'Community support'
+    ],
+    cta: 'Start with Starter',
+    badge: null,
+    href: QRAFTAI_APP_URL
+  },
+  {
+    name: 'Pro',
+    price: 99,
+    steps: '500 steps / month',
+    description: 'For teams running QraftAI across CI/CD with full browser and reporting depth.',
+    features: [
+      '500 test steps / month',
+      'Everything in Starter',
+      'All browsers (Chrome, Firefox, Safari, Edge)',
+      'CI/CD integration (GitHub, Jenkins, GitLab)',
+      'AI reports with fix suggestions',
+      'Test history & trend analysis',
+      'Priority email support'
+    ],
+    cta: 'Start with Pro',
+    badge: 'MOST POPULAR',
+    badgeStyle: 'popular',
+    href: QRAFTAI_APP_URL,
+    highlight: true
+  },
+  {
+    name: 'Unlimited',
+    price: 399,
+    steps: 'Unlimited steps',
+    description: 'For teams that run continuously. Ship without thinking about quotas.',
+    features: [
+      'Unlimited test steps',
+      'Everything in Pro',
+      'Dedicated cloud infrastructure',
+      'SSO & advanced security',
+      'Dedicated success manager'
+    ],
+    cta: 'Get Unlimited',
+    badge: 'LAUNCH OFFER',
+    badgeStyle: 'offer',
+    href: QRAFTAI_APP_URL
+  }
+];
+
+const trustItems = [
+  'No credit card to start',
+  'Cancel anytime',
+  '14-day money-back guarantee'
+];
 
 const Pricing = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const plans = [
-    {
-      name: "Starter",
-      price: "Free",
-      period: "forever",
-      description: "Get started with QraftAI — no credit card needed. Perfect for individuals and small teams evaluating the platform.",
-      features: [
-        "Up to 50 test cases/month",
-        "AI Test Case Generation",
-        "Web App Support",
-        "Live Test Execution",
-        "Basic AI Reports",
-        "Community Support"
-      ],
-      popular: false,
-      badge: "FREE FOREVER",
-      cta: "Get Started Free"
-    },
-    {
-      name: "Pro",
-      price: "Contact Us",
-      period: "per month",
-      description: "Full-power QraftAI for growing teams. CI/CD integration, advanced reporting, and mobile support included.",
-      features: [
-        "Unlimited Test Cases",
-        "AI Test Case Generation",
-        "Full Cross-Browser Support (Chrome, Firefox, Safari, Edge)",
-        "Live Test Execution",
-        "CI/CD Integration (GitHub, Jenkins, GitLab)",
-        "AI-Powered Reports with Fix Suggestions",
-        "Priority Email Support",
-        "Test History & Trend Analysis"
-      ],
-      popular: true,
-      badge: "MOST POPULAR",
-      cta: "Get Pro Access"
-    },
-    {
-      name: "Enterprise",
-      price: "Custom",
-      period: "pricing",
-      description: "For large teams and organizations needing dedicated infrastructure, custom integrations, and SLA-backed support.",
-      features: [
-        "Everything in Pro",
-        "Dedicated Cloud Infrastructure",
-        "Custom CI/CD Integrations",
-        "On-Premise Deployment Option",
-        "SSO & Advanced Security",
-        "SLA-Backed Uptime Guarantee",
-        "Dedicated Account Manager",
-        "Custom Onboarding & Training"
-      ],
-      popular: false,
-      badge: "ENTERPRISE",
-      cta: "Talk to Sales"
-    }
-  ];
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="pricing" className="section-padding bg-gradient-to-br from-slate-900 to-navy">
-      <div className="container-max">
+    <section id="pricing" className="section-padding bg-gradient-to-br from-slate-900 to-navy relative overflow-hidden">
+      {/* Decorative blobs */}
+      <div className="absolute -top-32 -right-32 w-96 h-96 bg-teal/[0.06] rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-purple/[0.06] rounded-full blur-3xl pointer-events-none" />
+
+      <div className="container-max relative">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-16 max-w-3xl mx-auto"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-poppins mb-6">
-            Pricing That <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">Scales With You</span>
+          <div className="text-teal text-xs font-semibold uppercase tracking-[0.18em] mb-3">Pricing</div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-poppins mb-5 leading-tight">
+            Simple pricing. <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">Pay per step.</span>
           </h2>
-          <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto mb-8">
-            Start free. Talk to us when you're ready to grow. No lock-in — pay only for what your agent does for you.
+          <p className="text-lg text-white/80">
+            Choose the plan that matches your QA volume. Switch anytime as your team grows.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className={`relative ${plan.popular ? 'md:-mt-8' : ''}`}
+              key={plan.name}
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -6 }}
+              className={`relative ${plan.highlight ? 'md:-mt-4' : ''}`}
             >
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                <span className={`px-6 py-2 rounded-full text-sm font-semibold ${
-                  plan.badge === 'BEST VALUE' 
-                    ? 'bg-gradient-to-r from-green-500 to-teal text-white' 
-                    : plan.badge === 'MOST POPULAR'
-                    ? 'bg-gradient-to-r from-teal to-purple text-white'
-                    : 'bg-gradient-to-r from-purple to-pink-500 text-white'
-                }`}>
-                  {plan.badge}
-                </span>
-              </div>
-              
-              <div className={`glass-card h-full ${plan.popular ? 'ring-2 ring-teal/50' : ''}`}>
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold font-poppins mb-2">{plan.name}</h3>
-                  {plan.discount && (
-                    <div className="mb-2">
-                      <span className="bg-gradient-to-r from-teal to-purple text-white px-3 py-1 rounded-full text-sm font-semibold">
-                        {plan.discount}
-                      </span>
-                    </div>
-                  )}
-                  <div className="mb-4">
-                    <div className="flex items-center justify-center space-x-2 mb-1">
-                      <span className="text-4xl font-bold text-white">{plan.price}</span>
-                      <span className="text-white/60">/{plan.period}</span>
-                    </div>
-                    {plan.originalPrice && (
-                      <div className="text-white/50 line-through text-lg">
-                        {plan.originalPrice}
-                      </div>
-                    )}
-                  </div>
-                  <p className="text-white/80">{plan.description}</p>
+              {/* Badge */}
+              {plan.badge && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap">
+                  <span className={`px-4 py-1 rounded-full text-[10px] font-bold tracking-wider ${
+                    plan.badgeStyle === 'offer'
+                      ? 'bg-gradient-to-r from-amber-400 to-orange-500 text-white shadow-lg shadow-orange-500/30'
+                      : 'bg-gradient-to-r from-teal to-purple text-white shadow-lg shadow-teal/30'
+                  }`}>
+                    {plan.badge}
+                  </span>
+                </div>
+              )}
+
+              <div className={`relative h-full rounded-2xl border p-7 sm:p-8 flex flex-col transition-all duration-300 ${
+                plan.highlight
+                  ? 'bg-gradient-to-b from-teal/[0.08] to-purple/[0.04] border-teal/50 shadow-2xl shadow-teal/15'
+                  : 'bg-white/[0.04] border-white/10 hover:border-white/20'
+              }`}>
+                {/* Header */}
+                <div className="mb-6">
+                  <h3 className="text-xl font-semibold font-poppins text-white mb-1">{plan.name}</h3>
+                  <div className="text-teal text-sm font-medium">{plan.steps}</div>
                 </div>
 
-                <ul className="space-y-4 mb-8">
-                  {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center">
-                      <svg className="w-5 h-5 text-teal mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                {/* Price */}
+                <div className="mb-6">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-white/60 text-2xl font-medium">$</span>
+                    <span className="text-5xl sm:text-6xl font-bold font-poppins text-white leading-none tracking-tight">{plan.price}</span>
+                    <span className="text-white/60 text-sm ml-1">/ month</span>
+                  </div>
+                </div>
+
+                <p className="text-white/70 text-sm leading-relaxed mb-6">{plan.description}</p>
+
+                {/* Divider */}
+                <div className="border-t border-white/10 mb-5" />
+
+                {/* Features */}
+                <ul className="space-y-2.5 mb-8 flex-grow">
+                  {plan.features.map((feature, fi) => (
+                    <li key={fi} className="flex items-start gap-2.5 text-sm">
+                      <svg className="w-4 h-4 text-teal flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-white/90">{feature}</span>
+                      <span className="text-white/85">{feature}</span>
                     </li>
                   ))}
                 </ul>
 
+                {/* CTA */}
                 <motion.a
-                  href={plan.name === 'Starter' ? 'https://qa.swiftscalesoftware.com/' : '#contact'}
-                  target={plan.name === 'Starter' ? '_blank' : '_self'}
-                  rel={plan.name === 'Starter' ? 'noopener noreferrer' : ''}
-                  onClick={plan.name !== 'Starter' ? (e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); } : undefined}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`w-full py-4 rounded-xl font-semibold transition-all duration-300 text-center block ${
-                    plan.popular
-                      ? 'bg-gradient-to-r from-teal to-purple text-white hover:shadow-lg hover:shadow-teal/25'
-                      : 'bg-white/10 text-white border border-white/20 hover:bg-white/20'
+                  href={plan.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className={`w-full py-3 rounded-xl font-semibold text-center block transition-all duration-300 ${
+                    plan.highlight
+                      ? 'bg-gradient-to-r from-teal to-purple text-white hover:shadow-lg hover:shadow-teal/30'
+                      : 'bg-white/[0.06] text-white border border-white/15 hover:bg-white/10 hover:border-white/25'
                   }`}
                 >
                   {plan.cta}
@@ -160,23 +173,39 @@ const Pricing = () => {
           ))}
         </div>
 
+        {/* Trust strip */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-center mt-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6 text-white/65 text-sm"
         >
-          <p className="text-white/80 mb-6">
-            Not sure which plan is right for you? Book a free demo and we'll walk you through QraftAI live.
+          {trustItems.map((item, i) => (
+            <div key={i} className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>{item}</span>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Custom CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-10 text-center"
+        >
+          <p className="text-white/70 mb-3">
+            Need something custom? Higher volume, on-premise, custom integrations.
           </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <button
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="btn-primary"
+            className="text-teal font-medium hover:underline"
           >
-            Book a Free Demo
-          </motion.button>
+            Talk to our team →
+          </button>
         </motion.div>
       </div>
     </section>

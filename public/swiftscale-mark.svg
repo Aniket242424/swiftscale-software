@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="ssGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2DD4BF"/>
+      <stop offset="100%" stop-color="#A855F7"/>
+    </linearGradient>
+    <linearGradient id="ssLightGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#5EEAD4"/>
+      <stop offset="100%" stop-color="#C084FC"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Motion lines -->
+  <g stroke="url(#ssLightGrad)" stroke-linecap="round" stroke-width="2.5" opacity="0.7">
+    <line x1="4" y1="34" x2="12" y2="34"/>
+    <line x1="2" y1="40" x2="10" y2="40"/>
+    <line x1="6" y1="46" x2="14" y2="46"/>
+  </g>
+
+  <!-- Main S swoop -->
+  <path
+    d="M48 14
+       C 44 9, 36 6, 28 8
+       C 18 11, 14 18, 18 24
+       C 22 30, 38 30, 42 36
+       C 46 42, 42 50, 32 54
+       C 24 57, 16 56, 12 52"
+    stroke="url(#ssGrad)"
+    stroke-width="6"
+    stroke-linecap="round"
+    fill="none"
+  />
+
+  <!-- Accent highlight on the curve -->
+  <path
+    d="M44 14
+       C 40 11, 34 10, 28 11"
+    stroke="url(#ssLightGrad)"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    fill="none"
+    opacity="0.9"
+  />
+</svg>
