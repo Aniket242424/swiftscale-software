@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
@@ -71,7 +72,7 @@ const About = () => {
               </p>
 
               <p>
-                Beyond QraftAI, we take on select end-to-end software builds — custom web and mobile apps, CRM tools, and full-cycle product development. Engage us as a dedicated team for builds from scratch, or for ongoing maintenance and new feature development.
+                Beyond QraftAI, we take on select <Link to="/services" className="text-teal font-semibold hover:underline">end-to-end software builds</Link> — custom web and mobile apps, CRM tools, and full-cycle product development. Engage us as a dedicated team for builds from scratch, or for ongoing maintenance and new feature development.
               </p>
 
               <p>

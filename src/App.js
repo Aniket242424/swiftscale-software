@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import Features from './components/Features';
@@ -15,6 +15,17 @@ import StudentProjects from './components/StudentProjects';
 import CareerAffiliate from './components/CareerAffiliate';
 import Navbar from './components/Navbar';
 import { PrivacyPolicy, TermsOfService, CookiePolicy, NotFound } from './components/Legal';
+import ServicesPage from './pages/Services';
+
+// Scroll to top on route change (skip if URL has a hash anchor)
+const ScrollToTop = () => {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (hash) return;
+    window.scrollTo(0, 0);
+  }, [pathname, hash]);
+  return null;
+};
 
 // About page — standalone route
 const AboutPage = () => (
@@ -48,9 +59,11 @@ const MainWebsite = () => (
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<MainWebsite />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/services" element={<ServicesPage />} />
         <Route path="/student-projects" element={<StudentProjects />} />
         <Route path="/academic-solutions" element={<StudentProjects />} />
         <Route path="/final-year-projects" element={<StudentProjects />} />
