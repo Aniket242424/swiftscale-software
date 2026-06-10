@@ -124,6 +124,34 @@ const services = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
       </svg>
     )
+  },
+  {
+    name: 'Sales Funnel & CRM',
+    tagline: 'Turn your site into a lead engine.',
+    blurb: 'Funnel design, CRM pipeline, and automation that runs while you sleep. We build the system that brings you your next client — not just the website.',
+    capabilities: [
+      'Landing pages + lead capture forms',
+      'CRM setup (HubSpot, Zoho, Pipedrive)',
+      'Email nurture sequences + lead scoring',
+      'GA4, GTM, and Looker Studio dashboards',
+      'Lead magnets (audits, scorecards, PDFs)',
+      'Monthly funnel reporting'
+    ],
+    tech: [
+      { name: 'HubSpot', slug: 'hubspot' },
+      { name: 'Zoho', slug: 'zoho' },
+      { name: 'Pipedrive', slug: 'pipedrive' },
+      { name: 'GA4', slug: 'googleanalytics' },
+      { name: 'GTM', slug: 'googletagmanager' },
+      { name: 'Mailchimp', slug: 'mailchimp' },
+      { name: 'Calendly', slug: 'calendly' }
+    ],
+    accent: 'from-orange-500/30 to-transparent',
+    icon: (
+      <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.4}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+      </svg>
+    )
   }
 ];
 
@@ -282,7 +310,7 @@ const Services = () => (
               Engineering you can <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">actually hire.</span>
             </h1>
             <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-8 max-w-2xl">
-              Test automation, mobile, cloud, and software development — by senior engineers, all the way to production. The same team that built QraftAI.
+              Test automation, mobile, cloud, software development, and sales funnel & CRM — by senior engineers, all the way to production. The same team that built QraftAI.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn-primary inline-block text-center">
@@ -329,7 +357,7 @@ const Services = () => (
         <div className="mb-14 max-w-3xl">
           <Eyebrow>What we do</Eyebrow>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-poppins leading-tight">
-            Four services. <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">One senior team.</span>
+            Five services. <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">One senior team.</span>
           </h2>
         </div>
 

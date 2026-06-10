@@ -9,54 +9,73 @@ const plans = [
     name: 'Starter',
     price: 49,
     steps: '200 steps / month',
-    description: 'For individuals and small teams running QraftAI on a single product.',
+    description: 'For individual developers running early-stage validation on a single product.',
     features: [
       '200 test steps / month',
+      'Core QA pipelines',
       'AI test case generation',
-      'Chrome + Firefox execution',
-      'Standard AI reports',
-      'Community support'
+      'Basic reporting',
+      'Email support',
+      'Community access'
     ],
-    cta: 'Start with Starter',
+    cta: 'Get Started',
+    badge: null,
+    href: QRAFTAI_APP_URL
+  },
+  {
+    name: 'Growth',
+    price: 149,
+    steps: '700 steps / month',
+    description: 'For mid-sized product teams shipping on a weekly release cycle.',
+    features: [
+      '700 test steps / month',
+      'Everything in Starter',
+      'CI/CD integrations',
+      'Advanced analytics',
+      'Team dashboard',
+      'Priority email support'
+    ],
+    cta: 'Get Started',
     badge: null,
     href: QRAFTAI_APP_URL
   },
   {
     name: 'Pro',
-    price: 99,
-    steps: '500 steps / month',
-    description: 'For teams running QraftAI across CI/CD with full browser and reporting depth.',
+    price: 399,
+    steps: '2,000 steps / month',
+    description: 'For high-growth SaaS teams deploying daily with custom integrations.',
     features: [
-      '500 test steps / month',
-      'Everything in Starter',
-      'All browsers (Chrome, Firefox, Safari, Edge)',
-      'CI/CD integration (GitHub, Jenkins, GitLab)',
-      'AI reports with fix suggestions',
-      'Test history & trend analysis',
-      'Priority email support'
+      '2,000 test steps / month',
+      'Everything in Growth',
+      'Choice of LLM mode (Claude / GPT)',
+      'Custom integrations',
+      'Dedicated CSM',
+      'Advanced security'
     ],
-    cta: 'Start with Pro',
+    cta: 'Get Started',
     badge: 'MOST POPULAR',
     badgeStyle: 'popular',
     href: QRAFTAI_APP_URL,
     highlight: true
   },
   {
-    name: 'Unlimited',
-    price: 399,
-    steps: 'Unlimited steps',
-    description: 'For teams that run continuously. Ship without thinking about quotas.',
+    name: 'Enterprise',
+    price: 'Custom',
+    steps: '5,000+ steps / month',
+    description: 'For large-scale enterprises with unlimited workloads and compliance needs.',
     features: [
-      'Unlimited test steps',
+      '5,000+ test steps / month',
       'Everything in Pro',
-      'Dedicated cloud infrastructure',
-      'SSO & advanced security',
-      'Dedicated success manager'
+      'All LLM modes (Claude, GPT, Gemini)',
+      'Unlimited workloads',
+      'On-premise option',
+      '24/7 phone support',
+      'Audit & compliance'
     ],
-    cta: 'Get Unlimited',
-    badge: 'LAUNCH OFFER',
-    badgeStyle: 'offer',
-    href: QRAFTAI_APP_URL
+    cta: 'Contact Sales',
+    badge: null,
+    href: '#contact',
+    isContact: true
   }
 ];
 
@@ -93,7 +112,7 @@ const Pricing = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
@@ -116,27 +135,33 @@ const Pricing = () => {
                 </div>
               )}
 
-              <div className={`relative h-full rounded-2xl border p-7 sm:p-8 flex flex-col transition-all duration-300 ${
+              <div className={`relative h-full rounded-2xl border p-6 sm:p-7 flex flex-col transition-all duration-300 ${
                 plan.highlight
                   ? 'bg-gradient-to-b from-teal/[0.08] to-purple/[0.04] border-teal/50 shadow-2xl shadow-teal/15'
                   : 'bg-white/[0.04] border-white/10 hover:border-white/20'
               }`}>
                 {/* Header */}
-                <div className="mb-6">
+                <div className="mb-5">
                   <h3 className="text-xl font-semibold font-poppins text-white mb-1">{plan.name}</h3>
                   <div className="text-teal text-sm font-medium">{plan.steps}</div>
                 </div>
 
                 {/* Price */}
-                <div className="mb-6">
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-white/60 text-2xl font-medium">$</span>
-                    <span className="text-5xl sm:text-6xl font-bold font-poppins text-white leading-none tracking-tight">{plan.price}</span>
-                    <span className="text-white/60 text-sm ml-1">/ month</span>
-                  </div>
+                <div className="mb-5">
+                  {plan.price === 'Custom' ? (
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-4xl sm:text-5xl font-bold font-poppins text-white leading-none tracking-tight">Custom</span>
+                    </div>
+                  ) : (
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-white/60 text-xl font-medium">$</span>
+                      <span className="text-4xl sm:text-5xl font-bold font-poppins text-white leading-none tracking-tight">{plan.price}</span>
+                      <span className="text-white/60 text-sm ml-1">/ month</span>
+                    </div>
+                  )}
                 </div>
 
-                <p className="text-white/70 text-sm leading-relaxed mb-6">{plan.description}</p>
+                <p className="text-white/70 text-sm leading-relaxed mb-5">{plan.description}</p>
 
                 {/* Divider */}
                 <div className="border-t border-white/10 mb-5" />
@@ -154,20 +179,31 @@ const Pricing = () => {
                 </ul>
 
                 {/* CTA */}
-                <motion.a
-                  href={plan.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className={`w-full py-3 rounded-xl font-semibold text-center block transition-all duration-300 ${
-                    plan.highlight
-                      ? 'bg-gradient-to-r from-teal to-purple text-white hover:shadow-lg hover:shadow-teal/30'
-                      : 'bg-white/[0.06] text-white border border-white/15 hover:bg-white/10 hover:border-white/25'
-                  }`}
-                >
-                  {plan.cta}
-                </motion.a>
+                {plan.isContact ? (
+                  <motion.button
+                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full py-3 rounded-xl font-semibold text-center block bg-white/[0.06] text-white border border-white/15 hover:bg-white/10 hover:border-white/25 transition-all duration-300"
+                  >
+                    {plan.cta}
+                  </motion.button>
+                ) : (
+                  <motion.a
+                    href={plan.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className={`w-full py-3 rounded-xl font-semibold text-center block transition-all duration-300 ${
+                      plan.highlight
+                        ? 'bg-gradient-to-r from-teal to-purple text-white hover:shadow-lg hover:shadow-teal/30'
+                        : 'bg-white/[0.06] text-white border border-white/15 hover:bg-white/10 hover:border-white/25'
+                    }`}
+                  >
+                    {plan.cta}
+                  </motion.a>
+                )}
               </div>
             </motion.div>
           ))}

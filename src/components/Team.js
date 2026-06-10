@@ -25,13 +25,14 @@ const Team = () => {
       linkedin: "https://www.linkedin.com/in/soubhikdas-thedeveloper/",
       expertise: ["Product Pitching", "Investor Relations", "Business Development", "Brand Storytelling"]
     },
-    {
-      name: "Kunal",
-      role: "Cloud Infrastructure Expert",
-      description: "Owns SwiftScale's cloud strategy end-to-end. Designs and manages scalable, secure cloud environments that power our products with high availability, performance, and cost efficiency.",
-      initials: "KA",
-      expertise: ["Cloud Architecture", "AWS / Azure / GCP", "DevOps & CI/CD", "Infrastructure Scaling"]
-    },
+    // Temporarily hidden — restore by uncommenting
+    // {
+    //   name: "Kunal",
+    //   role: "Cloud Infrastructure Expert",
+    //   description: "Owns SwiftScale's cloud strategy end-to-end. Designs and manages scalable, secure cloud environments that power our products with high availability, performance, and cost efficiency.",
+    //   initials: "KA",
+    //   expertise: ["Cloud Architecture", "AWS / Azure / GCP", "DevOps & CI/CD", "Infrastructure Scaling"]
+    // },
     {
       name: "Sameer Tate",
       role: "Product Manager & Marketing Lead",
