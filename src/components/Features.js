@@ -20,11 +20,12 @@ const Features = () => {
     {
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
         </svg>
       ),
-      title: "Reliable & Secure",
-      description: "Enterprise-grade security, 99.9% uptime, and cloud infrastructure managed by experts — so your product is always available and always protected."
+      title: "Mobile App Automation",
+      isNew: true,
+      description: "No-code mobile app testing. Your agent taps, swipes, and validates like a real user — on real devices, on every build."
     },
     {
       icon: (
@@ -34,6 +35,15 @@ const Features = () => {
       ),
       title: "Jira & Test Tool Integration",
       description: "Connect Jira or any test management tool — QraftAI pulls your tickets, generates test cases, and runs them live on our platform. No copy-paste, no manual setup."
+    },
+    {
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
+      title: "Reliable & Secure",
+      description: "Enterprise-grade security, encryption in transit and at rest, and cloud infrastructure managed by experts — so your product is always available and always protected."
     }
   ];
 
@@ -55,7 +65,7 @@ const Features = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -70,12 +80,20 @@ const Features = () => {
                   {feature.icon}
                 </div>
               </div>
-              <h3 className="text-xl font-semibold font-poppins mb-4">
+              <h3 className="text-xl font-semibold font-poppins mb-4 flex items-center justify-center gap-2 flex-wrap">
                 {feature.title}
+                {feature.isNew && (
+                  <span className="bg-amber-400 text-navy text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wider">NEW</span>
+                )}
               </h3>
               <p className="text-white/80 leading-relaxed">
                 {feature.description}
               </p>
+              {feature.platforms && (
+                <p className="text-teal/80 text-xs font-medium mt-3 tracking-wide">
+                  {feature.platforms}
+                </p>
+              )}
             </motion.div>
           ))}
         </div>

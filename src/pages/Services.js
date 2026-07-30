@@ -224,7 +224,7 @@ const engagementModels = [
 ];
 
 const stats = [
-  { value: '8+', label: 'years lead engineer, ex-Amazon SDET' },
+  { value: '8+', label: 'years of enterprise engineering experience' },
   { value: '100%', label: 'senior engineers — no juniors on your project' },
   { value: '1', label: 'team across testing, dev, mobile, cloud' }
 ];

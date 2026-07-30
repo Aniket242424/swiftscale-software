@@ -51,8 +51,8 @@ const Services = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
         </svg>
       ),
-      title: "Tests Every Browser",
-      description: "Your agent runs the same suite across Chrome, Firefox, Safari, and Edge — so your product works for every user, on every browser they use."
+      title: "Tests Every Browser & Mobile App",
+      description: "Your agent runs the same suite across Chrome, Firefox, Safari, Edge — and across your mobile apps. One agent, complete coverage across web and mobile."
     },
     {
       icon: (

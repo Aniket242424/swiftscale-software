@@ -76,7 +76,7 @@ const About = () => {
               </p>
 
               <p>
-                QraftAI is led by Aniket, an ex-Amazon SDET with 8+ years of experience, and Omkar — who together set out to build the tool Aniket always wished existed, backed by a team of engineers, cloud specialists, and product strategists.
+                QraftAI is led by an SDET with 8+ years of enterprise engineering experience, alongside Omkar — who together set out to build the QA tool they always wished existed, backed by a team of engineers, cloud specialists, and product strategists.
               </p>
             </div>
 

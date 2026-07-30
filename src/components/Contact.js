@@ -172,9 +172,9 @@ const Contact = () => {
                 <div className="flex-1">
                   <p className="font-semibold">Phone</p>
                   <div className="flex items-center space-x-3">
-                    <p className="text-white/80">+91 7588285664</p>
+                    <p className="text-white/80">+91 9172665769</p>
                     <motion.a
-                      href="https://wa.me/917588285664?text=Hi%20SwiftScale%20Software!%20I%20would%20like%20to%20discuss%20a%20project."
+                      href="https://wa.me/919172665769?text=Hi%20SwiftScale%20Software!%20I%20would%20like%20to%20discuss%20a%20project."
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.1 }}

@@ -11,18 +11,10 @@ const Team = () => {
       expertise: ["Business Strategy", "Leadership", "Partnerships", "Vision & Growth"]
     },
     {
-      name: "Aniket",
-      role: "Chief Technology Officer",
-      description: "Ex-Amazon SDET with 8+ years of experience — built QraftAI because he got tired of writing tests by hand. Leads all technical decisions and drives AI-enhanced development across the company.",
-      initials: "AM",
-      expertise: ["Full-Stack Development", "Enterprise Architecture", "AI-Enhanced Dev", "System Design"]
-    },
-    {
-      name: "Soubhik Das",
+      name: "Soubhik",
       role: "Growth & Investor Relations",
       description: "The face of SwiftScale to the world. Pitches our product to clients and investors, builds compelling narratives around our solutions, and opens doors to funding and strategic growth opportunities.",
       initials: "SB",
-      linkedin: "https://www.linkedin.com/in/soubhikdas-thedeveloper/",
       expertise: ["Product Pitching", "Investor Relations", "Business Development", "Brand Storytelling"]
     },
     // Temporarily hidden — restore by uncommenting

@@ -35,8 +35,8 @@ const Portfolio = () => {
     {
       step: "05",
       title: "It Runs Them Live",
-      description: "Tests execute across Chrome, Firefox, Safari, and Edge. Real browsers. Real-time results. On every PR.",
-      tags: ["Chrome", "Firefox", "Safari", "Edge", "Live View"]
+      description: "Tests execute across every browser and every mobile app. Real browsers. Real devices. Real-time results. On every PR.",
+      tags: ["Chrome", "Firefox", "Safari", "Edge", "Mobile Apps"]
     },
     {
       step: "06",

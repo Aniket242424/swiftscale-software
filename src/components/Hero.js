@@ -50,15 +50,17 @@ const Hero = () => {
           </h1>
         </motion.div>
 
-        {/* Urgency Banner */}
+        {/* Urgency Banner — with inline NEW chip for mobile launch */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mb-8"
         >
-          <div className="bg-gradient-to-r from-teal/90 to-purple/90 text-white px-6 py-3 rounded-full inline-flex items-center space-x-2 shadow-lg">
-            <span className="font-semibold">🤖 Your AI QA engineer — onboarded in minutes, on the job forever</span>
+          <div className="bg-gradient-to-r from-teal/90 to-purple/90 text-white px-6 py-3 rounded-full inline-flex items-center gap-2 shadow-lg">
+            {/* Inline NEW chip — same-family visual, no palette clash */}
+            <span className="bg-white/25 text-white text-[10px] font-bold px-2 py-0.5 rounded-full tracking-[0.15em]">NEW</span>
+            <span className="font-semibold">🤖 QraftAI now automates web AND mobile apps — no code required</span>
           </div>
         </motion.div>
 
@@ -68,7 +70,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed"
         >
-          QraftAI is the AI agent your QA team didn't know it needed. It learns your product, writes your test cases, and runs them live — on every PR, in every browser. Forever.
+          QraftAI is the AI agent your QA team didn't know it needed. It learns your product, writes your test cases, and runs them live — on every PR, in every browser, on every mobile device. Forever.
         </motion.p>
 
         <motion.div
@@ -85,7 +87,7 @@ const Hero = () => {
             whileTap={{ scale: 0.95 }}
             className="btn-primary"
           >
-            Try QraftAI Free
+            Try QraftAI — Web & Mobile
           </motion.a>
 
           <motion.button
