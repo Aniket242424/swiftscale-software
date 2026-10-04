@@ -13,6 +13,7 @@ import WhatsAppWidget from './components/WhatsAppWidget';
 import StudentProjects from './components/StudentProjects';
 import CareerAffiliate from './components/CareerAffiliate';
 import Navbar from './components/Navbar';
+import CursorGlow from './components/CursorGlow';
 import { PrivacyPolicy, TermsOfService, CookiePolicy, NotFound } from './components/Legal';
 import ServicesPage from './pages/Services';
 
@@ -29,6 +30,7 @@ const ScrollToTop = () => {
 // About page — standalone route
 const AboutPage = () => (
   <div className="App">
+    <CursorGlow />
     <div className="relative bg-navy">
       <Navbar />
     </div>
@@ -41,6 +43,7 @@ const AboutPage = () => (
 // Main website component
 const MainWebsite = () => (
   <div className="App">
+    <CursorGlow />
     <Hero />
     <Services />
     <Features />

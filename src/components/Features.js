@@ -1,101 +1,56 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 
 const Features = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
   const features = [
-    {
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-        </svg>
-      ),
-      title: "Your Dedicated AI Agent",
-      description: "Every customer gets an AI agent assigned to their product. It studies your application, learns your business logic, and continuously generates quality test cases as your app evolves — like an SDET that never goes on leave."
-    },
-    {
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-        </svg>
-      ),
-      title: "Mobile App Automation",
-      isNew: true,
-      description: "No-code mobile app testing. Your agent taps, swipes, and validates like a real user — on real devices, on every build."
-    },
-    {
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-      ),
-      title: "Jira & Test Tool Integration",
-      description: "Connect Jira or any test management tool — QraftAI pulls your tickets, generates test cases, and runs them live on our platform. No copy-paste, no manual setup."
-    },
-    {
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
-      title: "Reliable & Secure",
-      description: "Enterprise-grade security, encryption in transit and at rest, and cloud infrastructure managed by experts — so your product is always available and always protected."
-    }
+    { title:'Your Dedicated AI Agent', description:'An agent assigned to your product learns your application and keeps generating relevant tests as it evolves.', icon:'✦' },
+    { title:'Mobile App Automation', description:'No-code mobile testing where your agent taps, swipes and validates like a real user on real devices.', icon:'⌁', isNew:true },
+    { title:'Jira & Test Tool Integration', description:'Pull tickets and context from your existing tools, generate test cases and run them without copy-paste.', icon:'↗' },
+    { title:'Reliable & Secure', description:'Enterprise-grade infrastructure, encryption and managed cloud operations for dependable test execution.', icon:'✓' },
   ];
 
   return (
-    <section id="features" className="section-padding bg-gradient-to-br from-navy to-slate-900">
-      <div className="container-max">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-poppins mb-6">
-            Built Different. <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">Works Smarter.</span>
-          </h2>
-          <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto">
-            Not another testing tool. An AI agent that joins your team — and never logs off.
-          </p>
+    <section id="features" className="section-padding relative overflow-hidden bg-[#050816]">
+      <div className="absolute inset-0 premium-grid pointer-events-none opacity-60" />
+      <div className="container-max relative">
+        <motion.div ref={ref} initial={{opacity:0,y:28}} animate={isInView?{opacity:1,y:0}:{opacity:0,y:28}} transition={{duration:.65}} className="mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-3xl">
+            <span className="section-eyebrow">Why QraftAI</span>
+            <h2 className="section-title mt-5">Built for modern teams.<br/><span className="gradient-text-shimmer">Designed to keep learning.</span></h2>
+          </div>
+          <p className="section-copy max-w-md">A testing agent that understands your product, not just your selectors — and gets more useful with every release.</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              whileHover={{ scale: 1.05 }}
-              className="text-center group"
-            >
-              <div className="bg-gradient-to-br from-teal/20 to-purple/20 rounded-2xl p-6 mb-6 group-hover:from-teal/30 group-hover:to-purple/30 transition-all duration-300">
-                <div className="text-teal group-hover:text-white transition-colors duration-300 flex justify-center">
-                  {feature.icon}
-                </div>
+        <div className="grid gap-4 lg:grid-cols-12">
+          <motion.div initial={{opacity:0,x:-25}} animate={isInView?{opacity:1,x:0}:{opacity:0,x:-25}} transition={{duration:.7}} className="glass-card animated-border shimmer-surface premium-hover lg:col-span-7 min-h-[430px] p-7 sm:p-9">
+            <div className="relative z-10 flex h-full flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between"><span className="text-sm font-semibold text-cyan-300">01 / AI agent</span><span className="flex items-center gap-2 text-[10px] text-emerald-300"><span className="status-dot"/> Active</span></div>
+                <h3 className="mt-8 max-w-xl text-3xl font-semibold tracking-tight sm:text-4xl">Your QA teammate learns the product, not just the selectors.</h3>
+                <p className="mt-5 max-w-xl leading-7 text-white/48">It builds context around flows, edge cases and business logic so your test suite becomes more useful as the application grows.</p>
               </div>
-              <h3 className="text-xl font-semibold font-poppins mb-4 flex items-center justify-center gap-2 flex-wrap">
-                {feature.title}
-                {feature.isNew && (
-                  <span className="bg-amber-400 text-navy text-[10px] font-bold px-2 py-0.5 rounded-full tracking-wider">NEW</span>
-                )}
-              </h3>
-              <p className="text-white/80 leading-relaxed">
-                {feature.description}
-              </p>
-              {feature.platforms && (
-                <p className="text-teal/80 text-xs font-medium mt-3 tracking-wide">
-                  {feature.platforms}
-                </p>
-              )}
-            </motion.div>
-          ))}
+              <div className="relative mt-10 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#07101b] p-4">
+                <span className="scan-line" />
+                <div className="mb-3 flex items-center gap-3"><span className="text-cyan-300">$</span><span className="font-mono text-xs text-white/35">agent.run('checkout')</span></div>
+                <div className="space-y-2 font-mono text-[11px]"><div className="text-white/30">→ discovering application flow...</div><div className="text-white/45">→ 24 test cases generated</div><div className="text-emerald-300">✓ checkout.spec passed</div></div>
+              </div>
+            </div>
+          </motion.div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:col-span-5">
+            {features.map((feature,index)=>(
+              <motion.article key={feature.title} initial={{opacity:0,y:25}} animate={isInView?{opacity:1,y:0}:{opacity:0,y:25}} transition={{duration:.6,delay:.08+index*.08}} whileHover={{y:-6,rotateX:1,rotateY:-1}} className="glass-card premium-hover group p-6">
+                <div className="relative z-10 flex h-full flex-col">
+                  <div className="flex items-start justify-between"><span className="hover-icon flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-300/15 bg-cyan-300/[0.06] text-cyan-300">{feature.icon}</span>{feature.isNew&&<span className="rounded-full border border-cyan-300/15 bg-cyan-300/[0.05] px-2 py-1 text-[8px] uppercase tracking-[.14em] text-cyan-200">New</span>}</div>
+                  <h3 className="mt-8 text-base font-semibold tracking-tight">{feature.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-white/42">{feature.description}</p>
+                  <span className="magnetic-arrow mt-auto pt-5 text-sm text-white/20 group-hover:text-cyan-300">→</span>
+                </div>
+              </motion.article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

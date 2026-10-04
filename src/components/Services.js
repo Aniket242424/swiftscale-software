@@ -1,108 +1,41 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 
 const Services = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
   const services = [
-    {
-      icon: (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-        </svg>
-      ),
-      title: "Writes Your Tests",
-      description: "Your agent generates comprehensive test cases for every flow in your application — no manual scripting, no boilerplate, no copy-paste from old test suites."
-    },
-    {
-      icon: (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
-      title: "Runs Them Live",
-      description: "Your agent executes tests in real time across real browsers. Watch every click, every assertion, every result — live, as it happens."
-    },
-    {
-      icon: (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-      ),
-      title: "Plugs Into Your Pipeline",
-      description: "Your agent connects directly into GitHub Actions, Jenkins, GitLab CI, and more. Tests run on every commit, every PR, every release — no separate workflow."
-    },
-    {
-      icon: (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-        </svg>
-      ),
-      title: "Reports What Matters",
-      description: "Not just pass/fail. Your agent explains what broke, why it broke, and what to fix. Actionable insights, not raw logs."
-    },
-    {
-      icon: (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-        </svg>
-      ),
-      title: "Tests Every Browser & Mobile App",
-      description: "Your agent runs the same suite across Chrome, Firefox, Safari, Edge — and across your mobile apps. One agent, complete coverage across web and mobile."
-    },
-    {
-      icon: (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
-      title: "Pays for Itself",
-      description: "One agent replaces hours of manual QA every week. No licenses, no QA contractor invoices, no test-script tech debt — just an AI teammate at a fraction of the cost."
-    }
+    { number: '01', title: 'Writes Your Tests', description: 'Your agent generates comprehensive test cases for every flow in your application — no manual scripting, boilerplate or copy-paste.', icon: '✦' },
+    { number: '02', title: 'Runs Them Live', description: 'Execute tests in real browsers and devices. Watch every click, assertion and result as it happens.', icon: '▶' },
+    { number: '03', title: 'Plugs Into Your Pipeline', description: 'Connect GitHub Actions, Jenkins, GitLab CI and more. Tests run on every commit, PR and release.', icon: '⌘' },
+    { number: '04', title: 'Reports What Matters', description: 'Get root-cause context and actionable insights instead of a wall of raw test logs.', icon: '↗' },
+    { number: '05', title: 'Tests Web & Mobile', description: 'Cover Chrome, Firefox, Safari, Edge and mobile apps with one continuous AI testing workflow.', icon: '▣' },
+    { number: '06', title: 'Gets Sharper Over Time', description: 'Coverage compounds with every release, turning your agent into a long-term QA teammate.', icon: '∞' },
   ];
 
   return (
-    <section id="services" className="section-padding bg-navy">
+    <section id="services" className="section-padding relative overflow-hidden bg-[#060a14]">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-2/3 bg-gradient-to-r from-transparent via-teal/30 to-transparent" />
       <div className="container-max">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-poppins mb-6">
-            What Your <span className="bg-gradient-to-r from-teal to-purple bg-clip-text text-transparent">Agent</span> Does
-          </h2>
-          <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto">
-            One AI teammate. Writes tests, runs them, reports the results — and gets sharper every day it works for you.
-          </p>
+        <motion.div ref={ref} initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }} transition={{ duration: .7 }} className="max-w-3xl mb-14">
+          <span className="section-eyebrow">What the agent does</span>
+          <h2 className="section-title mt-5">One AI teammate.<br /><span className="gradient-text-shimmer">Every QA workflow.</span></h2>
+          <p className="section-copy mt-6 max-w-2xl">QraftAI discovers, generates, executes and explains — so your team can spend more time building and less time maintaining tests.</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              whileHover={{ y: -10 }}
-              className="glass-card group"
-            >
-              <div className="text-teal mb-6 group-hover:text-white transition-colors duration-300">
-                {service.icon}
+            <motion.article key={service.number} initial={{ opacity: 0, y: 35 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 35 }} transition={{ duration: .65, delay: index * .08 }} whileHover={{ y: -10, rotateX: 1.5, rotateY: -1, scale: 1.01 }} className="glass-card hover-lift premium-hover p-6 sm:p-7 min-h-[260px] group">
+              <div className="relative z-10 flex items-start justify-between mb-12">
+                <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-teal/15 bg-teal/[0.08] text-teal font-semibold group-hover:bg-teal/15 transition-colors icon-pulse hover-icon">{service.icon}</span>
+                <span className="text-xs font-mono text-white/20">{service.number}</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-semibold font-poppins mb-4">
-                {service.title}
-              </h3>
-              <p className="text-white/80 leading-relaxed">
-                {service.description}
-              </p>
-            </motion.div>
+              <div className="relative z-10">
+                <h3 className="text-xl font-semibold tracking-tight">{service.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-white/50">{service.description}</p>
+              </div>
+              <div className="absolute right-5 bottom-5 text-white/10 group-hover:text-teal/40 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 magnetic-arrow">↗</div>
+            </motion.article>
           ))}
         </div>
       </div>

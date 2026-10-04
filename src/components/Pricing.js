@@ -90,7 +90,7 @@ const Pricing = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="pricing" className="section-padding bg-gradient-to-br from-slate-900 to-navy relative overflow-hidden">
+    <section id="pricing" className="section-padding bg-[#050816] relative overflow-hidden">
       {/* Decorative blobs */}
       <div className="absolute -top-32 -right-32 w-96 h-96 bg-teal/[0.06] rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-purple/[0.06] rounded-full blur-3xl pointer-events-none" />
@@ -119,13 +119,13 @@ const Pricing = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -6 }}
-              className={`relative ${plan.highlight ? 'md:-mt-4' : ''}`}
+              whileHover={{ y: plan.highlight ? -10 : -7, scale: 1.015 }}
+              className={`relative ${plan.highlight ? 'md:-mt-5' : ''}`}
             >
               {/* Badge */}
               {plan.badge && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap">
-                  <span className={`px-4 py-1 rounded-full text-[10px] font-bold tracking-wider ${
+                  <span className={`px-4 py-1.5 rounded-full text-[10px] font-bold tracking-wider ${
                     plan.badgeStyle === 'offer'
                       ? 'bg-gradient-to-r from-amber-400 to-orange-500 text-white shadow-lg shadow-orange-500/30'
                       : 'bg-gradient-to-r from-teal to-purple text-white shadow-lg shadow-teal/30'
@@ -135,10 +135,10 @@ const Pricing = () => {
                 </div>
               )}
 
-              <div className={`relative h-full rounded-2xl border p-6 sm:p-7 flex flex-col transition-all duration-300 ${
+              <div className={`relative h-full rounded-3xl border p-6 sm:p-7 flex flex-col transition-all duration-500 premium-hover ${
                 plan.highlight
-                  ? 'bg-gradient-to-b from-teal/[0.08] to-purple/[0.04] border-teal/50 shadow-2xl shadow-teal/15'
-                  : 'bg-white/[0.04] border-white/10 hover:border-white/20'
+                  ? 'bg-gradient-to-b from-teal/[0.10] via-white/[0.025] to-purple/[0.06] border-teal/40 shadow-[0_30px_100px_rgba(45,212,191,.12)]'
+                  : 'bg-white/[0.025] border-white/[0.09] hover:border-white/20 shadow-[inset_0_1px_0_rgba(255,255,255,.05)]'
               }`}>
                 {/* Header */}
                 <div className="mb-5">

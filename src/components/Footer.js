@@ -35,9 +35,9 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-navy border-t border-white/10">
+    <footer className="bg-[#050816] border-t border-white/[0.08]">
       <div className="container-max">
-        <div className="py-16">
+        <div className="py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Logo and Description */}
             <div className="lg:col-span-1">
@@ -50,7 +50,7 @@ const Footer = () => {
                 <div className="mb-6">
                   <Logo size="default" />
                 </div>
-                <p className="text-white/70 leading-relaxed mb-6">
+                <p className="text-white/45 leading-relaxed mb-6">
                   Building agentic AI products. QraftAI assigns a dedicated AI agent to your product — it learns your app and generates quality test cases, continuously.
                 </p>
                 <div className="space-y-3">
@@ -151,7 +151,7 @@ const Footer = () => {
                       aria-label={social.name}
                       whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.95 }}
-                      className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center text-white/70 hover:bg-teal/20 hover:text-teal transition-all duration-300"
+                      className="w-10 h-10 bg-white/[0.04] border border-white/10 rounded-xl flex items-center justify-center text-white/70 hover:bg-teal/20 hover:text-teal transition-all duration-300"
                     >
                       {social.icon}
                     </motion.a>
