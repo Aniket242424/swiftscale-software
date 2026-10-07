@@ -13,6 +13,11 @@ const Navbar = () => {
     e.preventDefault();
     const wasMenuOpen = isMobileMenuOpen;
     setIsMobileMenuOpen(false);
+    // Page routes (e.g. /careers) navigate directly; the rest are homepage anchors.
+    if (href.startsWith('/')) {
+      navigate(href);
+      return;
+    }
     if (location.pathname !== '/') {
       navigate('/' + href);
     } else {
@@ -44,6 +49,7 @@ const Navbar = () => {
     { name: 'How It Works', href: '#portfolio' },
     { name: 'Pricing', href: '#pricing' },
     { name: 'About', href: '#about' },
+    { name: 'Careers', href: '/careers' },
     { name: 'Contact', href: '#contact' }
   ];
 
@@ -64,7 +70,7 @@ const Navbar = () => {
           <Logo size="default" />
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-5 xl:space-x-8">
             {navItems.map((item, index) => (
               <motion.a
                 key={index}

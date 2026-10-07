@@ -15,6 +15,7 @@ import CareerAffiliate from './components/CareerAffiliate';
 import Navbar from './components/Navbar';
 import { PrivacyPolicy, TermsOfService, CookiePolicy, NotFound } from './components/Legal';
 import ServicesPage from './pages/Services';
+import CareersPage from './pages/Careers';
 
 // Scroll to top on route change (skip if URL has a hash anchor)
 const ScrollToTop = () => {
@@ -65,7 +66,8 @@ function App() {
         <Route path="/student-projects" element={<StudentProjects />} />
         <Route path="/academic-solutions" element={<StudentProjects />} />
         <Route path="/final-year-projects" element={<StudentProjects />} />
-        <Route path="/careers" element={<CareerAffiliate />} />
+        <Route path="/careers" element={<CareersPage />} />
+        {/* Sales-associate affiliate programme — a separate audience from engineering roles */}
         <Route path="/affiliate" element={<CareerAffiliate />} />
         <Route path="/join-us" element={<CareerAffiliate />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
